@@ -63,7 +63,7 @@ public class Main extends javax.swing.JFrame {
     // Método para actualizar la hora
     private void actualizarHora() {
         LocalDateTime ahora = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm:ss a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm:s a");
         String horaFormateada = ahora.format(formatter);
         lblTiempo.setText(horaFormateada);
 
