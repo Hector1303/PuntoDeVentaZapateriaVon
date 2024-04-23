@@ -58,6 +58,9 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jSeparator6 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1510, 770));
+        setMinimumSize(new java.awt.Dimension(1510, 770));
+        setPreferredSize(new java.awt.Dimension(1510, 770));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo zapateria von azul.png"))); // NOI18N
