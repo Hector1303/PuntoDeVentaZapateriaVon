@@ -32,7 +32,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
         lblAnadir = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txfEstilo = new javax.swing.JTextField();
@@ -56,6 +55,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         pnlAtras = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -63,18 +63,16 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1510, 770));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo zapateria von azul.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 155, 36));
-
         lblAnadir.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblAnadir.setForeground(new java.awt.Color(0, 0, 0));
+        lblAnadir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAnadir.setText("Añadir");
-        add(lblAnadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 400, 70));
+        add(lblAnadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Estilo");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 90, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 90, 30));
 
         txfEstilo.setForeground(new java.awt.Color(153, 153, 153));
         txfEstilo.setText("Ingresa el estilo");
@@ -84,13 +82,13 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 txfEstiloMousePressed(evt);
             }
         });
-        add(txfEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 160, 10));
+        add(txfEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 160, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 160, 10));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Numero");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 80, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 80, 20));
 
         txfNumero.setForeground(new java.awt.Color(153, 153, 153));
         txfNumero.setText("Ingresa el numero");
@@ -100,13 +98,13 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 txfNumeroMousePressed(evt);
             }
         });
-        add(txfNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 160, 20));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 223, 160, 10));
+        add(txfNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 160, 20));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 160, 10));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Color");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 60, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 60, 20));
 
         txfColor.setForeground(new java.awt.Color(153, 153, 153));
         txfColor.setText("Ingresa el color");
@@ -117,25 +115,26 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 txfColorMousePressed(evt);
             }
         });
-        add(txfColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 160, -1));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 160, -1));
+        add(txfColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 160, -1));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 160, -1));
 
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 30, 270));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 30, 270));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Sexo");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 60, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 60, 20));
 
         cbxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dama", "Caballero", "Unisex" }));
         cbxSexo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(cbxSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 90, -1));
+        add(cbxSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, 90, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Precio");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 70, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 300, 70, 20));
 
         txfPrecio.setForeground(new java.awt.Color(153, 153, 153));
         txfPrecio.setText("Ingresa el precio");
@@ -145,17 +144,17 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 txfPrecioMousePressed(evt);
             }
         });
-        add(txfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 170, -1));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 170, 10));
+        add(txfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, 170, -1));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 350, 170, 10));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Tipo");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 70, 20));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 390, 70, 20));
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teni", "Zapato", "Zapatilla", "Huarache" }));
         cbxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 90, -1));
+        add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 420, 90, -1));
 
         pnlAnadirSeleccionado.setBackground(new java.awt.Color(21, 101, 192));
         pnlAnadirSeleccionado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -178,7 +177,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel8.setText("Añadir");
         pnlAnadirSeleccionado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 30));
 
-        add(pnlAnadirSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 150, 50));
+        add(pnlAnadirSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 150, 50));
 
         pnlAtras.setBackground(new java.awt.Color(255, 255, 255));
         pnlAtras.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,6 +192,9 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
 
         add(pnlAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 40));
         add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 200, 0));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlAnadirSeleccionadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirSeleccionadoMouseEntered
@@ -341,11 +343,11 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbxSexo;
     public static javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

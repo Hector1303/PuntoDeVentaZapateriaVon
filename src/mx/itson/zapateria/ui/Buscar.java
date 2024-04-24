@@ -79,14 +79,21 @@ public class Buscar extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         txfBuscar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBuscar = new javax.swing.JTable();
         pnlVendido = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pnlApartar = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        pnlEliminar = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -96,11 +103,9 @@ public class Buscar extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Buscar en inventario");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 480, 40));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo zapateria von azul.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 155, 36));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 40));
 
         txfBuscar.setBackground(new java.awt.Color(255, 255, 255));
         txfBuscar.setForeground(new java.awt.Color(153, 153, 153));
@@ -124,11 +129,16 @@ public class Buscar extends javax.swing.JPanel {
                 txfBuscarKeyReleased(evt);
             }
         });
-        add(txfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 220, 10));
+        add(txfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 230, -1));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 220, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/buscar (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 30, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 30, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
 
         tblBuscar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,9 +153,9 @@ public class Buscar extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblBuscar);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 670, 250));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 970, 460));
 
-        pnlVendido.setBackground(new java.awt.Color(21, 101, 192));
+        pnlVendido.setBackground(new java.awt.Color(73, 150, 50));
         pnlVendido.setForeground(new java.awt.Color(21, 101, 192));
         pnlVendido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pnlVendido.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,13 +171,79 @@ public class Buscar extends javax.swing.JPanel {
         });
         pnlVendido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Vendido");
-        pnlVendido.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/billete-de-banco.png"))); // NOI18N
+        pnlVendido.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 70));
 
-        add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 80, 30));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Vender");
+        pnlVendido.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 30));
+
+        add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 240, 170, 90));
+
+        pnlApartar.setBackground(new java.awt.Color(73, 150, 50));
+        pnlApartar.setForeground(new java.awt.Color(21, 101, 192));
+        pnlApartar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlApartar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlApartarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlApartarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlApartarMouseExited(evt);
+            }
+        });
+        pnlApartar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/calendario (1).png"))); // NOI18N
+        pnlApartar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 70));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Apartar");
+        pnlApartar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 30));
+
+        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 350, 170, 90));
+
+        pnlEliminar.setBackground(new java.awt.Color(192, 42, 35));
+        pnlEliminar.setForeground(new java.awt.Color(21, 101, 192));
+        pnlEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlEliminarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlEliminarMouseExited(evt);
+            }
+        });
+        pnlEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/eliminar.png"))); // NOI18N
+        pnlEliminar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 70));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Eliminar");
+        pnlEliminar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 170, -1));
+
+        add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 470, 170, 90));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txfBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMousePressed
@@ -190,11 +266,11 @@ public class Buscar extends javax.swing.JPanel {
     }//GEN-LAST:event_txfBuscarMouseClicked
 
     private void pnlVendidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseEntered
-        pnlVendido.setBackground(new Color(21,101,192));
+        pnlVendido.setBackground(new Color(38,109,43));
     }//GEN-LAST:event_pnlVendidoMouseEntered
 
     private void pnlVendidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseExited
-        pnlVendido.setBackground(new Color(18,90,173));
+        pnlVendido.setBackground(new Color(73,150,50));
     }//GEN-LAST:event_pnlVendidoMouseExited
 
     private void pnlVendidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseClicked
@@ -204,17 +280,48 @@ public class Buscar extends javax.swing.JPanel {
         modelo.eliminarModelo();
     }//GEN-LAST:event_pnlVendidoMouseClicked
 
+    private void pnlApartarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlApartarMouseClicked
+
+    private void pnlApartarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseEntered
+        pnlApartar.setBackground(new Color(38,109,43));
+    }//GEN-LAST:event_pnlApartarMouseEntered
+
+    private void pnlApartarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseExited
+        pnlApartar.setBackground(new Color(73,150,50));
+    }//GEN-LAST:event_pnlApartarMouseExited
+
+    private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlEliminarMouseClicked
+
+    private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
+        pnlEliminar.setBackground(new Color(119,42,35));
+    }//GEN-LAST:event_pnlEliminarMouseEntered
+
+    private void pnlEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseExited
+        pnlEliminar.setBackground(new Color(192,42,35));
+    }//GEN-LAST:event_pnlEliminarMouseExited
+
     
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel pnlApartar;
+    private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlVendido;
     public static javax.swing.JTable tblBuscar;
     private javax.swing.JTextField txfBuscar;

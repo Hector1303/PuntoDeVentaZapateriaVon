@@ -115,7 +115,7 @@ public class ModeloDAO {
         try {
             
             int filaSeleccionada = Buscar.tblBuscar.getSelectedRow();
-            String query = "DELETE FROM almacen.modelo WHERE id=" + Buscar.tblBuscar.getValueAt(filaSeleccionada,0);
+            String query = "DELETE FROM almacen.modelo WHERE estilo= " + Buscar.tblBuscar.getValueAt(filaSeleccionada,5);
             Connection conexion = Conexion.get();
             Statement statement = conexion.createStatement();
             
@@ -126,7 +126,7 @@ public class ModeloDAO {
             }
             
             Vendido p4 = new Vendido();
-            p4.setSize(730, 420);
+            p4.setSize(1510, 770);
             p4.setLocation(0,0);
         
             pnlJFrames.removeAll();
@@ -193,8 +193,8 @@ public class ModeloDAO {
             Connection conexion = Conexion.get();
             Statement statement = conexion.createStatement();
             
-            int n = statement.executeUpdate("INSERT INTO almacen.venta(color, numero, tipo, sexo, precio, estilo, fecha, idModelo) "
-                    + "SELECT color, numero, tipo, sexo, precio, estilo, CURDATE(), id FROM almacen.modelo WHERE (id=" + Buscar.tblBuscar.getValueAt(filaSeleccionada,0)+")");
+            int n = statement.executeUpdate("INSERT INTO almacen.venta(color, numero, tipo, sexo, precio, estilo, fecha) "
+                    + "SELECT color, numero, tipo, sexo, precio, estilo, CURDATE() FROM almacen.modelo WHERE (estilo=" + Buscar.tblBuscar.getValueAt(filaSeleccionada,5)+")");
             
             if (n >= 0) {
                 System.out.println("Modelo transferido a venta");

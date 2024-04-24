@@ -37,7 +37,7 @@ public class Inicio extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -47,11 +47,12 @@ public class Inicio extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Seleccionar accion");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 430, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 250, 10));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 320, 10));
 
         pnlInicioAnadir.setBackground(new java.awt.Color(255, 255, 255));
         pnlInicioAnadir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -66,7 +67,7 @@ public class Inicio extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/anadir (1).png"))); // NOI18N
         pnlInicioAnadir.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 140, 190));
 
-        add(pnlInicioAnadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 210, 190));
+        add(pnlInicioAnadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 210, 190));
 
         pnlInicioBuscar.setBackground(new java.awt.Color(255, 255, 255));
         pnlInicioBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -82,20 +83,20 @@ public class Inicio extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/lupa.png"))); // NOI18N
         pnlInicioBuscar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 163, 184));
 
-        add(pnlInicioBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 210, 190));
+        add(pnlInicioBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 260, 210, 190));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Buscar Modelo");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 260, 50));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 460, 260, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Añadir Modelo");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 270, 50));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, 270, 50));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo zapateria von azul.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 155, 36));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlInicioAnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlInicioAnadirMouseClicked
@@ -130,11 +131,11 @@ public class Inicio extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlInicioAnadir;
     private javax.swing.JPanel pnlInicioBuscar;

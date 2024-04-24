@@ -59,8 +59,9 @@ public class Anadir extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Añadir Modelo");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, -1));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 170, 20));
 
         pnlTeni.setBackground(new java.awt.Color(255, 255, 255));
@@ -77,7 +78,7 @@ public class Anadir extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/zapatillas-de-deporte (1).png"))); // NOI18N
         pnlTeni.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
 
-        add(pnlTeni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 140));
+        add(pnlTeni, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 140, 140));
 
         pnlZapato.setBackground(new java.awt.Color(255, 255, 255));
         pnlZapato.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -93,7 +94,7 @@ public class Anadir extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/zapato.png"))); // NOI18N
         pnlZapato.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 140, 140));
 
-        add(pnlZapato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 140, 140));
+        add(pnlZapato, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 140, 140));
 
         pnlZapatilla.setBackground(new java.awt.Color(255, 255, 255));
         pnlZapatilla.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -109,7 +110,7 @@ public class Anadir extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/tacones-altos.png"))); // NOI18N
         pnlZapatilla.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
 
-        add(pnlZapatilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 140, 140));
+        add(pnlZapatilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, 140, 140));
 
         pnlHuarache.setBackground(new java.awt.Color(255, 255, 255));
         pnlHuarache.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -125,30 +126,30 @@ public class Anadir extends javax.swing.JPanel {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
         pnlHuarache.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 140, 150));
 
-        add(pnlHuarache, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 140, 140));
+        add(pnlHuarache, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 290, 140, 140));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tenis");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 60, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 60, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Zapatos");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 110, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Zapatillas");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 110, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, 110, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Huaraches");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 120, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 430, 120, 30));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo zapateria von azul.png"))); // NOI18N
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 155, 36));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
 
         pnlAtras.setBackground(new java.awt.Color(255, 255, 255));
         pnlAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
