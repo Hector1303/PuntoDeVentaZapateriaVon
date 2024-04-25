@@ -62,7 +62,9 @@ public class Anadir extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Añadir Modelo");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 170, 20));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 260, 20));
 
         pnlTeni.setBackground(new java.awt.Color(255, 255, 255));
         pnlTeni.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -234,7 +236,7 @@ public class Anadir extends javax.swing.JPanel {
 
     private void pnlAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAtrasMouseClicked
 
-        Inicio p1 = new Inicio();
+        NuevaVenta p1 = new NuevaVenta();
         p1.setSize(1510, 770);
         p1.setLocation(0,0);
 

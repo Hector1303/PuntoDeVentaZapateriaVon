@@ -42,7 +42,7 @@ public class Main extends javax.swing.JFrame {
              "Octubre", "Noviembre", "Diciemrbre"};
         lblFecha.setText("Hoy es " + dia + " de " + meses[mes - 1] + " del " + anio);
 
-        Inicio p1 = new Inicio();
+        NuevaVenta p1 = new NuevaVenta();
         p1.setSize(1510, 770);
         p1.setLocation(0, 0);
 
@@ -63,7 +63,7 @@ public class Main extends javax.swing.JFrame {
     // Método para actualizar la hora
     private void actualizarHora() {
         LocalDateTime ahora = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm:s a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm:ss a");
         String horaFormateada = ahora.format(formatter);
         lblTiempo.setText(horaFormateada);
 
@@ -147,11 +147,11 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("  Inicio");
+        jLabel3.setText("  Nueva venta");
         pnlInicio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 300, 110));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Inicio 64x64.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/anadir-al-carrito.png"))); // NOI18N
         pnlInicio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 110));
 
         pnlMenu.add(pnlInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 410, 110));
@@ -464,7 +464,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlBuscar);
         resetColor(pnlApartados);
 
-        Inicio p1 = new Inicio();
+        NuevaVenta p1 = new NuevaVenta();
         p1.setSize(1510, 770);
         p1.setLocation(0, 0);
 
