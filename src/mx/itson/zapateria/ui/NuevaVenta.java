@@ -5,7 +5,10 @@
 package mx.itson.zapateria.ui;
 
 import java.awt.Color;
-
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import mx.itson.zapateria.entidades.Modelo;
+import mx.itson.zapateria.persistencia.ModeloDAO;
 
 /**
  *
@@ -18,6 +21,63 @@ public class NuevaVenta extends javax.swing.JPanel {
      */
     public NuevaVenta() {
         initComponents();
+    }
+
+    public String capitalizeFirstLetter(String input) {
+        if (input == null || input.isEmpty()) {
+            return input; // Manejar casos especiales
+        }
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
+    }
+
+    public void buscar(String buscar) {
+
+        List<Modelo> modelos = ModeloDAO.buscarPorCodigo(buscar);
+
+        for (Modelo m : modelos) {
+            txfEstilo.setText(String.valueOf(m.getEstilo()));
+            txfColor.setText(m.getColor());
+
+            String tipo = capitalizeFirstLetter(m.getTipo().toString().toLowerCase());
+            for (int i = 0; i < cbxTipo.getItemCount(); i++) {
+                if (tipo.equals(cbxTipo.getItemAt(i))) {
+                    cbxTipo.setSelectedIndex(i);
+                    break;
+                }else if(tipo.equals("Botatrabajo" )){
+                    cbxTipo.setSelectedIndex(5);
+                    break;
+                }else if(tipo.equals("Botarodeo")){
+                    cbxTipo.setSelectedIndex(6);
+                    break;
+                }else if(tipo.equals("Botaalta")){
+                    cbxTipo.setSelectedIndex(7);
+                    break;
+                }
+            }
+
+            String sexo = capitalizeFirstLetter(m.getSexo().toString().toLowerCase());
+            for (int i = 0; i < cbxSexo.getItemCount(); i++) {
+                if (sexo.equals(cbxSexo.getItemAt(i))) {
+                    cbxSexo.setSelectedIndex(i);
+                    break;
+                }
+            }
+
+            String numeroStr = String.valueOf(m.getNumero()); // Convertir el número a una cadena
+            if (numeroStr.endsWith(".0")) { // Si el número es un entero, terminará con ".0"
+                numeroStr = numeroStr.substring(0, numeroStr.length() - 2); // Eliminar ".0" al final
+            }
+
+            for (int i = 0; i < cbxNumero.getItemCount(); i++) {
+                if (numeroStr.equals(cbxNumero.getItemAt(i))) {
+                    cbxNumero.setSelectedIndex(i);
+                    break;
+                }
+            }
+
+            txfPrecio.setText("$" + String.valueOf(m.getPrecio()));
+
+        }
     }
 
     /**
@@ -49,6 +109,10 @@ public class NuevaVenta extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCarrito = new javax.swing.JTable();
+        txfCodigo = new com.raven.zapateria.textfield.TextField();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -71,7 +135,7 @@ public class NuevaVenta extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Estilo");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 80, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 80, -1));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -80,7 +144,7 @@ public class NuevaVenta extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tipo");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 110, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 110, -1));
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Teni", "Zapato", "Zapatilla", "Huarache", "Taquete", "Bota de trabajo", "Bota de rodeo", "Bota alta", "Botin", "Reloj" }));
         cbxTipo.setSelectedIndex(-1);
@@ -91,22 +155,24 @@ public class NuevaVenta extends javax.swing.JPanel {
                 cbxTipoActionPerformed(evt);
             }
         });
-        add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 230, 50));
+        add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 230, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Color");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 80, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 80, -1));
 
+        txfEstilo.setEditable(false);
         txfEstilo.setLabelText("");
         txfEstilo.setLineColor(new java.awt.Color(73, 150, 50));
         txfEstilo.setSelectionColor(new java.awt.Color(73, 150, 50));
-        add(txfEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 230, -1));
+        add(txfEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 230, -1));
 
+        txfColor.setEditable(false);
         txfColor.setLabelText("");
         txfColor.setLineColor(new java.awt.Color(73, 150, 50));
         txfColor.setSelectionColor(new java.awt.Color(73, 150, 50));
-        add(txfColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, -1));
+        add(txfColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 230, -1));
 
         cbxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mujer", "Hombre", "Unisex" }));
         cbxSexo.setSelectedIndex(-1);
@@ -117,12 +183,12 @@ public class NuevaVenta extends javax.swing.JPanel {
                 cbxSexoActionPerformed(evt);
             }
         });
-        add(cbxSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 230, 50));
+        add(cbxSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 230, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 110, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 110, -1));
 
         cbxNumero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "10.5", "11", "11.5", "12", "12.5", "13", "13.5", "14", "14.5", "15", "15.5", "16", "16.5", "17", "17.5", "18", "18.5", "19", "19.5", "20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5" }));
         cbxNumero.setSelectedIndex(-1);
@@ -133,26 +199,30 @@ public class NuevaVenta extends javax.swing.JPanel {
                 cbxNumeroActionPerformed(evt);
             }
         });
-        add(cbxNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 230, 50));
+        add(cbxNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 230, 50));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Numero");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 110, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 110, -1));
 
+        txfPrecio.setEditable(false);
         txfPrecio.setLabelText("");
         txfPrecio.setLineColor(new java.awt.Color(73, 150, 50));
         txfPrecio.setSelectionColor(new java.awt.Color(73, 150, 50));
-        add(txfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 230, -1));
+        add(txfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 230, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Precio");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 80, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 80, -1));
 
         plnAnadirAlCarrito.setBackground(new java.awt.Color(73, 150, 50));
         plnAnadirAlCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         plnAnadirAlCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plnAnadirAlCarritoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 plnAnadirAlCarritoMouseEntered(evt);
             }
@@ -168,22 +238,52 @@ public class NuevaVenta extends javax.swing.JPanel {
         jLabel3.setText("Añadir al carrito");
         plnAnadirAlCarrito.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 70));
 
-        add(plnAnadirAlCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, 260, 70));
+        add(plnAnadirAlCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 650, 260, 70));
 
         tblCarrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Estilo", "Color", "Tipo", "Sexo", "Numero", "Precio"
+                "Codigo", "Estilo", "Color", "Tipo", "Sexo", "Numero", "Precio"
             }
         ));
         jScrollPane1.setViewportView(tblCarrito);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 140, 690, 360));
+
+        txfCodigo.setLabelText("");
+        txfCodigo.setLineColor(new java.awt.Color(73, 150, 50));
+        txfCodigo.setSelectionColor(new java.awt.Color(73, 150, 50));
+        txfCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txfCodigoMousePressed(evt);
+            }
+        });
+        txfCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfCodigoKeyReleased(evt);
+            }
+        });
+        add(txfCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 230, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Codigo");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 230, -1));
+
+        jPanel1.setBackground(new java.awt.Color(73, 150, 50));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Imprimir ticket");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 70));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 640, 190, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoActionPerformed
@@ -199,12 +299,52 @@ public class NuevaVenta extends javax.swing.JPanel {
     }//GEN-LAST:event_cbxNumeroActionPerformed
 
     private void plnAnadirAlCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plnAnadirAlCarritoMouseEntered
-        plnAnadirAlCarrito.setBackground(new Color(38,109,43));
+        plnAnadirAlCarrito.setBackground(new Color(38, 109, 43));
     }//GEN-LAST:event_plnAnadirAlCarritoMouseEntered
 
     private void plnAnadirAlCarritoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plnAnadirAlCarritoMouseExited
-        plnAnadirAlCarrito.setBackground(new Color(73,150,50));
+        plnAnadirAlCarrito.setBackground(new Color(73, 150, 50));
     }//GEN-LAST:event_plnAnadirAlCarritoMouseExited
+
+    private void txfCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfCodigoKeyReleased
+        buscar(txfCodigo.getText());
+        if (txfCodigo.getText().equals("")) {
+            txfEstilo.setText("");
+            txfColor.setText("");
+            txfPrecio.setText("");
+            cbxTipo.setSelectedIndex(-1);
+            cbxSexo.setSelectedIndex(-1);
+            cbxNumero.setSelectedIndex(-1);
+        }
+    }//GEN-LAST:event_txfCodigoKeyReleased
+
+    private void txfCodigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfCodigoMousePressed
+
+    }//GEN-LAST:event_txfCodigoMousePressed
+
+    private void plnAnadirAlCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plnAnadirAlCarritoMouseClicked
+
+        DefaultTableModel model = (DefaultTableModel) tblCarrito.getModel();
+        
+        model.addRow(new Object[]{
+            txfCodigo.getText(),
+            txfEstilo.getText(),
+            txfColor.getText(),
+            cbxTipo.getSelectedItem(),
+            cbxSexo.getSelectedItem(),
+            cbxNumero.getSelectedItem(),
+            txfPrecio.getText()
+        });
+    
+        txfCodigo.setText("");
+        txfEstilo.setText("");
+        txfColor.setText("");
+        txfPrecio.setText("");
+        cbxTipo.setSelectedIndex(-1);
+        cbxSexo.setSelectedIndex(-1);
+        cbxNumero.setSelectedIndex(-1);
+
+    }//GEN-LAST:event_plnAnadirAlCarritoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,6 +352,7 @@ public class NuevaVenta extends javax.swing.JPanel {
     private com.raven.zapateria.combobox.Combobox cbxSexo;
     private com.raven.zapateria.combobox.Combobox cbxTipo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -220,11 +361,14 @@ public class NuevaVenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel plnAnadirAlCarrito;
     private javax.swing.JTable tblCarrito;
+    private com.raven.zapateria.textfield.TextField txfCodigo;
     private com.raven.zapateria.textfield.TextField txfColor;
     private com.raven.zapateria.textfield.TextField txfEstilo;
     private com.raven.zapateria.textfield.TextField txfPrecio;

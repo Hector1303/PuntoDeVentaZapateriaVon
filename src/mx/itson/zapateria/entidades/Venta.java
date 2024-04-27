@@ -14,7 +14,7 @@ import mx.itson.zapateria.enumerador.Tipo;
  */
 public class Venta {
 
-    private int id;
+    private int codigo;
     private String color;
     private Double numero;
     private Sexo sexo;
@@ -24,17 +24,17 @@ public class Venta {
     private Date fecha;
     
     /**
-     * @return the id
+     * @return the codigo
      */
-    public int getId() {
-        return id;
+    public int getCodigo() {
+        return codigo;
     }
 
     /**
-     * @param id the id to set
+     * @param codigo the codigo to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     /**

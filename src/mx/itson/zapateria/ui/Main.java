@@ -39,7 +39,7 @@ public class Main extends javax.swing.JFrame {
         int dia = hoy.getDayOfMonth();
         int mes = hoy.getMonthValue();
         String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", " ;Septiembre",
-             "Octubre", "Noviembre", "Diciemrbre"};
+            "Octubre", "Noviembre", "Diciemrbre"};
         lblFecha.setText("Hoy es " + dia + " de " + meses[mes - 1] + " del " + anio);
 
         NuevaVenta p1 = new NuevaVenta();
@@ -65,7 +65,7 @@ public class Main extends javax.swing.JFrame {
         LocalDateTime ahora = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm:ss a");
         String horaFormateada = ahora.format(formatter);
-        lblTiempo.setText(horaFormateada);
+        lblTiempo.setText(horaFormateada.toUpperCase());
 
     }
 
@@ -243,7 +243,7 @@ public class Main extends javax.swing.JFrame {
         pnlMenu.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1060, 100, -1));
 
         lblTiempo.setBackground(new java.awt.Color(255, 255, 255));
-        lblTiempo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblTiempo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblTiempo.setForeground(new java.awt.Color(255, 255, 255));
         lblTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pnlMenu.add(lblTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 300, 70));
@@ -551,7 +551,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlApartadosMouseExited
 
     private void pnlApartadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartadosMouseClicked
-        
+
         setColor(pnlApartados);
         resetColor(pnlInicio);
         resetColor(pnlAnadir);
@@ -566,7 +566,7 @@ public class Main extends javax.swing.JFrame {
         pnlJFrames.add(p5, BorderLayout.CENTER);
         pnlJFrames.revalidate();
         pnlJFrames.repaint();
-        
+
     }//GEN-LAST:event_pnlApartadosMouseClicked
 
     /**

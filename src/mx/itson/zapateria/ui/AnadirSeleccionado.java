@@ -56,6 +56,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
+        txfCodigo = new com.raven.zapateria.textfield.TextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -175,7 +176,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Añadir");
-        pnlAnadirSeleccionado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 30));
+        pnlAnadirSeleccionado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
 
         add(pnlAnadirSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 150, 50));
 
@@ -195,6 +196,11 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
+
+        txfCodigo.setLabelText("Codigo");
+        txfCodigo.setLineColor(new java.awt.Color(73, 150, 50));
+        txfCodigo.setSelectionColor(new java.awt.Color(73, 150, 50));
+        add(txfCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlAnadirSeleccionadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirSeleccionadoMouseEntered
@@ -303,6 +309,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
 
     private void pnlAnadirSeleccionadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirSeleccionadoMouseClicked
      
+        String codigo = txfCodigo.getText();
         String estilo = txfEstilo.getText().toLowerCase();
         String color = txfColor.getText().toUpperCase();
         String numero = txfNumero.getText();
@@ -311,14 +318,15 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         String tipo = cbxTipo.getSelectedItem().toString();
         
         try {
-            if(estilo.equals("") || estilo.equals("Ingresa el estilo") || 
+            if(codigo.equals("")||  
+                    estilo.equals("") || estilo.equals("Ingresa el estilo") || 
                     numero.equals("") || numero.equals("Ingresa el numero") || 
                     color.equals("") || color.equals("Ingresa el color") || 
                     precio.equals("") || precio.equals("Ingresa el precio")){
                 JOptionPane.showMessageDialog(null,"Faltan ingresar datos");
             } else {
                 
-                if(ModeloDAO.guardar(color, Double.parseDouble(numero), Integer.parseInt(tipo), Integer.parseInt(sexo), Double.parseDouble(precio), Integer.parseInt(estilo))){
+                if(ModeloDAO.guardar(Integer.parseInt(codigo), color, Double.parseDouble(numero), Integer.parseInt(tipo), Integer.parseInt(sexo), Double.parseDouble(precio), Integer.parseInt(estilo))){
                 JOptionPane.showMessageDialog(null,"Modelo añadido");
                 
                 Buscar p3 = new Buscar();
@@ -360,6 +368,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     public static javax.swing.JLabel lblAnadir;
     private javax.swing.JPanel pnlAnadirSeleccionado;
     private javax.swing.JPanel pnlAtras;
+    private com.raven.zapateria.textfield.TextField txfCodigo;
     private javax.swing.JTextField txfColor;
     private javax.swing.JTextField txfEstilo;
     private javax.swing.JTextField txfNumero;

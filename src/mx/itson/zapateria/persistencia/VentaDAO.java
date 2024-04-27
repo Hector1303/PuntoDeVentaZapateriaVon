@@ -38,7 +38,7 @@ public class VentaDAO {
 
                 Venta v = new Venta();
 
-                v.setId(rs.getInt(1));
+                v.setCodigo(rs.getInt(1));
                 v.setColor(rs.getString(2));
                 v.setNumero(rs.getDouble(3));
                 v.setTipo(rs.getInt(4) == 1 ? Tipo.TENI : 

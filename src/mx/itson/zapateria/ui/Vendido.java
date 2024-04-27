@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
@@ -78,18 +79,22 @@ public class Vendido extends javax.swing.JPanel {
         List<Venta> ventas = VentaDAO.obtener();
         DefaultTableModel model = (DefaultTableModel) tblVendido.getModel();
         model.setRowCount(0);
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 
         for (Venta v : ventas) {
             model.addRow(new Object[]{
+                v.getCodigo(),
                 v.getColor(),
                 v.getNumero(),
                 v.getTipo(),
                 v.getSexo(),
-                v.getPrecio(),
+                "$"+v.getPrecio(),
                 v.getEstilo(),
-                v.getFecha()
+                formato.format(v.getFecha())
             });
         }
+        
+        
     }
 
     public void totalizar() {
@@ -100,7 +105,7 @@ public class Vendido extends javax.swing.JPanel {
 
         if (tblVendido.getRowCount() > 0) {
             for (int i = 0; i < tblVendido.getRowCount(); i++) {
-                precio = Double.parseDouble(tblVendido.getValueAt(i, 5).toString());
+                precio = Double.parseDouble(tblVendido.getValueAt(i, 5).toString().substring(1));
                 total += precio;
             }
 
@@ -136,21 +141,21 @@ public class Vendido extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Ventas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1510, 59));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 59));
 
         tblVendido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Color", "Numero", "Tipo de teni", "Sexo", "Precio", "Estilo", "Fecha"
+                "Codigo", "Color", "Numero", "Tipo de teni", "Sexo", "Precio", "Estilo", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

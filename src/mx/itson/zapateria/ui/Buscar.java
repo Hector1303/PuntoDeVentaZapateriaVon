@@ -35,11 +35,12 @@ public class Buscar extends javax.swing.JPanel {
 
         for (Modelo m : modelos) {
             model.addRow(new Object[]{
+                m.getCodigo(),
                 m.getColor(),
                 m.getNumero(),
                 m.getTipo(),
                 m.getSexo(),
-                m.getPrecio(),
+                "$"+m.getPrecio(),
                 m.getEstilo()
             });
         }
@@ -56,11 +57,12 @@ public class Buscar extends javax.swing.JPanel {
 
         for (Modelo m : modelos) {
             model.addRow(new Object[]{
+                m.getCodigo(),
                 m.getColor(),
                 m.getNumero(),
                 m.getTipo(),
                 m.getSexo(),
-                m.getPrecio(),
+                "$"+m.getPrecio(),
                 m.getEstilo()
             });
         }
@@ -79,8 +81,6 @@ public class Buscar extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txfBuscar = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -94,6 +94,7 @@ public class Buscar extends javax.swing.JPanel {
         pnlEliminar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        txfBuscar = new com.raven.zapateria.textfield.TextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -107,48 +108,21 @@ public class Buscar extends javax.swing.JPanel {
         jLabel1.setText("Buscar en inventario");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 40));
 
-        txfBuscar.setBackground(new java.awt.Color(255, 255, 255));
-        txfBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        txfBuscar.setText("Modelo/Color/Numero/Tipo/Sexo/Precio");
-        txfBuscar.setBorder(null);
-        txfBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txfBuscarMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txfBuscarMousePressed(evt);
-            }
-        });
-        txfBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfBuscarActionPerformed(evt);
-            }
-        });
-        txfBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txfBuscarKeyReleased(evt);
-            }
-        });
-        add(txfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 230, -1));
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 220, 10));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/buscar (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 30, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 30, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
 
         tblBuscar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo"
+                "Codigo", "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo"
             }
         ));
         jScrollPane1.setViewportView(tblBuscar);
@@ -183,7 +157,7 @@ public class Buscar extends javax.swing.JPanel {
         jLabel4.setText("Vender");
         pnlVendido.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 30));
 
-        add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 240, 170, 90));
+        add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 200, 170, 90));
 
         pnlApartar.setBackground(new java.awt.Color(73, 150, 50));
         pnlApartar.setForeground(new java.awt.Color(21, 101, 192));
@@ -213,7 +187,7 @@ public class Buscar extends javax.swing.JPanel {
         jLabel6.setText("Apartar");
         pnlApartar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 30));
 
-        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 350, 170, 90));
+        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 310, 170, 90));
 
         pnlEliminar.setBackground(new java.awt.Color(192, 42, 35));
         pnlEliminar.setForeground(new java.awt.Color(21, 101, 192));
@@ -243,27 +217,26 @@ public class Buscar extends javax.swing.JPanel {
         jLabel8.setText("Eliminar");
         pnlEliminar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 170, -1));
 
-        add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 470, 170, 90));
+        add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 510, 170, 90));
+
+        txfBuscar.setLabelText("Codigo/Color/Numero/Tipo/Sexo/Precio/Estilo");
+        txfBuscar.setLineColor(new java.awt.Color(73, 150, 50));
+        txfBuscar.setSelectionColor(new java.awt.Color(73, 150, 50));
+        txfBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txfBuscarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                txfBuscarMouseReleased(evt);
+            }
+        });
+        txfBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfBuscarKeyReleased(evt);
+            }
+        });
+        add(txfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 260, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txfBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMousePressed
-        if(txfBuscar.getText().equals("Color/Numero/Tipo/Sexo/Precio/Estilo")){
-            txfBuscar.setText("");
-            txfBuscar.setForeground(Color.BLACK);
-        } 
-    }//GEN-LAST:event_txfBuscarMousePressed
-
-    private void txfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfBuscarKeyReleased
-        buscar(txfBuscar.getText());
-    }//GEN-LAST:event_txfBuscarKeyReleased
-
-    private void txfBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfBuscarActionPerformed
-
-    private void txfBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfBuscarMouseClicked
 
     private void pnlVendidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseEntered
         pnlVendido.setBackground(new Color(38,109,43));
@@ -304,6 +277,21 @@ public class Buscar extends javax.swing.JPanel {
         pnlEliminar.setBackground(new Color(192,42,35));
     }//GEN-LAST:event_pnlEliminarMouseExited
 
+    private void txfBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMousePressed
+        if(txfBuscar.getText().equals("Codigo/Color/Numero/Tipo/Sexo/Precio/Estilo")){
+            txfBuscar.setText("");
+            txfBuscar.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txfBuscarMousePressed
+
+    private void txfBuscarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMouseReleased
+        
+    }//GEN-LAST:event_txfBuscarMouseReleased
+
+    private void txfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfBuscarKeyReleased
+        buscar(txfBuscar.getText());
+    }//GEN-LAST:event_txfBuscarKeyReleased
+
     
     
     
@@ -319,11 +307,10 @@ public class Buscar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlApartar;
     private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlVendido;
     public static javax.swing.JTable tblBuscar;
-    private javax.swing.JTextField txfBuscar;
+    private com.raven.zapateria.textfield.TextField txfBuscar;
     // End of variables declaration//GEN-END:variables
 }

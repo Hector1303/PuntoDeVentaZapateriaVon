@@ -19,6 +19,8 @@ public class Apartado extends javax.swing.JPanel {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,11 +45,8 @@ public class Apartado extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
@@ -63,7 +62,7 @@ public class Apartado extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 10, 640));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 10, 640));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -73,25 +72,25 @@ public class Apartado extends javax.swing.JPanel {
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setBorder(null);
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 310, 30));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 270, 30));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 310, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 270, 10));
 
         tblApartados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Celular", "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo", "Fecha de apartado", "Fecha de vencimiento", "Numero de apartado"
+                "Nombre", "Celular", "Codigo", "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo", "Fecha de apartado", "Fecha de vencimiento", "Numero de apartado"
             }
         ));
         jScrollPane1.setViewportView(tblApartados);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 1070, 500));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 1110, 500));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -101,10 +100,10 @@ public class Apartado extends javax.swing.JPanel {
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setBorder(null);
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 310, 30));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 270, 30));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 310, 10));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 270, 10));
 
         pnlApartar.setBackground(new java.awt.Color(73, 150, 50));
         pnlApartar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -143,34 +142,25 @@ public class Apartado extends javax.swing.JPanel {
         jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setForeground(new java.awt.Color(0, 0, 0));
         jTextField3.setBorder(null);
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 310, 30));
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 270, 30));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 310, 10));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 270, 10));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Numero");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 90, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "12.5", "13", "13.5", "14", "14.5", "15", "15.5", "16", "16.5", "17", "17.5", "18", "18.5", "19", "19.5", "20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 30));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Tipo");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 90, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teni", "Zapato", "Zapatilla", "Huarache", "Taquete", "Bota de trabajo", "Bota de rodeo", "Bota Alta", "Botin", "Reloj" }));
-        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 310, 30));
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Sexo");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 90, 30));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Caballero", "Dama", "Unisex" }));
-        add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 310, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -180,10 +170,10 @@ public class Apartado extends javax.swing.JPanel {
         jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setForeground(new java.awt.Color(0, 0, 0));
         jTextField4.setBorder(null);
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 310, 30));
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 270, 30));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 310, 10));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 270, 10));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
@@ -205,9 +195,6 @@ public class Apartado extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

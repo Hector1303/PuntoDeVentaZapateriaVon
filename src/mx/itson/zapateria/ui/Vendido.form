@@ -45,7 +45,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="30" width="1510" height="59"/>
+          <AbsoluteConstraints x="0" y="0" width="1510" height="59"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -64,7 +64,8 @@
         <Component class="javax.swing.JTable" name="tblVendido">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="8" rowCount="4">
+                <Column editable="true" title="Codigo" type="java.lang.Object"/>
                 <Column editable="true" title="Color" type="java.lang.Object"/>
                 <Column editable="true" title="Numero" type="java.lang.Object"/>
                 <Column editable="true" title="Tipo de teni" type="java.lang.Object"/>
@@ -76,6 +77,11 @@
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
