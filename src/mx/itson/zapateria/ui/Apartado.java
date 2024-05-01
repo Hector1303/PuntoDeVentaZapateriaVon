@@ -30,28 +30,14 @@ public class Apartado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblApartados = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         pnlApartar = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        pnlApartar1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -59,23 +45,6 @@ public class Apartado extends javax.swing.JPanel {
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1510, 770));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 10, 640));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombre");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 90, 30));
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setBorder(null);
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 270, 30));
-
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 270, 10));
 
         tblApartados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,20 +59,7 @@ public class Apartado extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblApartados);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 1110, 500));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Abono");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 90, 30));
-
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setBorder(null);
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 270, 30));
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 270, 10));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 1380, 500));
 
         pnlApartar.setBackground(new java.awt.Color(73, 150, 50));
         pnlApartar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -119,61 +75,24 @@ public class Apartado extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Apartar");
+        jLabel3.setText("Abonar o liquidar");
 
         javax.swing.GroupLayout pnlApartarLayout = new javax.swing.GroupLayout(pnlApartar);
         pnlApartar.setLayout(pnlApartarLayout);
         pnlApartarLayout.setHorizontalGroup(
             pnlApartarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlApartarLayout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlApartarLayout.setVerticalGroup(
             pnlApartarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlApartarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 220, 70));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Color");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 90, 30));
-
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setBorder(null);
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 270, 30));
-
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 270, 10));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Numero");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 90, 30));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Tipo");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 90, 30));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Sexo");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 90, 30));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Color");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, 90, 30));
-
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setBorder(null);
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 270, 30));
-
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 270, 10));
+        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 660, 220, 70));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
@@ -183,6 +102,35 @@ public class Apartado extends javax.swing.JPanel {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Apartados");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 59));
+
+        pnlApartar1.setBackground(new java.awt.Color(73, 150, 50));
+        pnlApartar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlApartar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlApartar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlApartar1MouseExited(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Nuevo apartado");
+
+        javax.swing.GroupLayout pnlApartar1Layout = new javax.swing.GroupLayout(pnlApartar1);
+        pnlApartar1.setLayout(pnlApartar1Layout);
+        pnlApartar1Layout.setHorizontalGroup(
+            pnlApartar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        pnlApartar1Layout.setVerticalGroup(
+            pnlApartar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+        );
+
+        add(pnlApartar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 660, 220, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlApartarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseEntered
@@ -193,29 +141,23 @@ public class Apartado extends javax.swing.JPanel {
         pnlApartar.setBackground(new Color(73,150,50));
     }//GEN-LAST:event_pnlApartarMouseExited
 
+    private void pnlApartar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartar1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlApartar1MouseEntered
+
+    private void pnlApartar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartar1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlApartar1MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JPanel pnlApartar;
+    private javax.swing.JPanel pnlApartar1;
     private javax.swing.JTable tblApartados;
     // End of variables declaration//GEN-END:variables
 }

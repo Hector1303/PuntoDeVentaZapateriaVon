@@ -30,7 +30,6 @@ public class Anadir extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         pnlTeni = new javax.swing.JPanel();
@@ -46,10 +45,24 @@ public class Anadir extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        pnlAtras = new javax.swing.JPanel();
+        pnlTaquete = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo zapateria von azul.png"))); // NOI18N
+        pnlBotaTrabajo = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        pnlBotaRodeo = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        pnlBotaAlta = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        pnlBotin = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        pnlReloj = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -80,7 +93,7 @@ public class Anadir extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/zapatillas-de-deporte (1).png"))); // NOI18N
         pnlTeni.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
 
-        add(pnlTeni, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 140, 140));
+        add(pnlTeni, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 140, 140));
 
         pnlZapato.setBackground(new java.awt.Color(255, 255, 255));
         pnlZapato.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -96,7 +109,7 @@ public class Anadir extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/zapato.png"))); // NOI18N
         pnlZapato.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 140, 140));
 
-        add(pnlZapato, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 140, 140));
+        add(pnlZapato, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 140, 140));
 
         pnlZapatilla.setBackground(new java.awt.Color(255, 255, 255));
         pnlZapatilla.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -112,7 +125,7 @@ public class Anadir extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/tacones-altos.png"))); // NOI18N
         pnlZapatilla.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
 
-        add(pnlZapatilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, 140, 140));
+        add(pnlZapatilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 140, 140));
 
         pnlHuarache.setBackground(new java.awt.Color(255, 255, 255));
         pnlHuarache.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -126,45 +139,168 @@ public class Anadir extends javax.swing.JPanel {
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
-        pnlHuarache.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 140, 150));
+        pnlHuarache.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
 
-        add(pnlHuarache, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 290, 140, 140));
+        add(pnlHuarache, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 230, 140, 140));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Tenis");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 60, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 140, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Zapatos");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 110, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Zapatillas");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, 110, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 140, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Huaraches");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 430, 120, 30));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Taquetes");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 370, 140, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
 
-        pnlAtras.setBackground(new java.awt.Color(255, 255, 255));
-        pnlAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlAtras.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlTaquete.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTaquete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        pnlTaquete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlTaquete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlAtrasMouseClicked(evt);
+                pnlTaqueteMouseClicked(evt);
             }
         });
+        pnlTaquete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/atras (1).png"))); // NOI18N
-        pnlAtras.add(jLabel12);
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
+        pnlTaquete.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
 
-        add(pnlAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 40));
+        add(pnlTaquete, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 140, 140));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Huaraches");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 370, 140, 30));
+
+        pnlBotaTrabajo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBotaTrabajo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        pnlBotaTrabajo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlBotaTrabajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBotaTrabajoMouseClicked(evt);
+            }
+        });
+        pnlBotaTrabajo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
+        pnlBotaTrabajo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
+
+        add(pnlBotaTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 140, 140));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Bota de trabajo");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 200, 30));
+
+        pnlBotaRodeo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBotaRodeo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        pnlBotaRodeo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlBotaRodeo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBotaRodeoMouseClicked(evt);
+            }
+        });
+        pnlBotaRodeo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
+        pnlBotaRodeo.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
+
+        add(pnlBotaRodeo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 140, 140));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Bota de rodeo");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 600, 200, 30));
+
+        pnlBotaAlta.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBotaAlta.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        pnlBotaAlta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlBotaAlta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBotaAltaMouseClicked(evt);
+            }
+        });
+        pnlBotaAlta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
+        pnlBotaAlta.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
+
+        add(pnlBotaAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 140, 140));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Bota alta");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 140, 30));
+
+        pnlBotin.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBotin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        pnlBotin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlBotin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBotinMouseClicked(evt);
+            }
+        });
+        pnlBotin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
+        pnlBotin.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
+
+        add(pnlBotin, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 460, 140, 140));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("Botin");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 600, 140, 30));
+
+        pnlReloj.setBackground(new java.awt.Color(255, 255, 255));
+        pnlReloj.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        pnlReloj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlReloj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlRelojMouseClicked(evt);
+            }
+        });
+        pnlReloj.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/sandalias.png"))); // NOI18N
+        pnlReloj.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 140));
+
+        add(pnlReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 460, 140, 140));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Reloj");
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 600, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlTeniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTeniMouseClicked
@@ -179,7 +315,7 @@ public class Anadir extends javax.swing.JPanel {
         pnlJFrames.repaint();
         
         p5.lblAnadir.setText("Añadir Teni");
-        p5.cbxTipo.setSelectedItem("Teni");
+        p5.cbxTipo.setSelectedIndex(0);
         
     }//GEN-LAST:event_pnlTeniMouseClicked
 
@@ -196,7 +332,7 @@ public class Anadir extends javax.swing.JPanel {
         pnlJFrames.repaint();
         
         p5.lblAnadir.setText("Añadir Zapato");
-        p5.cbxTipo.setSelectedItem("Zapato");
+        p5.cbxTipo.setSelectedIndex(1);
         
     }//GEN-LAST:event_pnlZapatoMouseClicked
 
@@ -213,7 +349,7 @@ public class Anadir extends javax.swing.JPanel {
         pnlJFrames.repaint();
         
         p5.lblAnadir.setText("Añadir Zapatilla");
-        p5.cbxTipo.setSelectedItem("Zapatilla");
+        p5.cbxTipo.setSelectedIndex(2);
         
     }//GEN-LAST:event_pnlZapatillaMouseClicked
 
@@ -230,22 +366,93 @@ public class Anadir extends javax.swing.JPanel {
         pnlJFrames.repaint();
         
         p5.lblAnadir.setText("Añadir Huarache");
-        p5.cbxTipo.setSelectedItem("Huarache");
+        p5.cbxTipo.setSelectedIndex(3);
         
     }//GEN-LAST:event_pnlHuaracheMouseClicked
 
-    private void pnlAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAtrasMouseClicked
-
-        NuevaVenta p1 = new NuevaVenta();
-        p1.setSize(1510, 770);
-        p1.setLocation(0,0);
-
+    private void pnlTaqueteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTaqueteMouseClicked
+        AnadirSeleccionado p5 = new AnadirSeleccionado();
+        p5.setSize(1510, 770);
+        p5.setLocation(0,0);
+        
         pnlJFrames.removeAll();
-        pnlJFrames.add(p1, BorderLayout.CENTER);
+        pnlJFrames.add(p5, BorderLayout.CENTER);
         pnlJFrames.revalidate();
         pnlJFrames.repaint();
+        
+        p5.lblAnadir.setText("Añadir Taquete");
+        p5.cbxTipo.setSelectedIndex(4);
+    }//GEN-LAST:event_pnlTaqueteMouseClicked
 
-    }//GEN-LAST:event_pnlAtrasMouseClicked
+    private void pnlBotaTrabajoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBotaTrabajoMouseClicked
+        AnadirSeleccionado p5 = new AnadirSeleccionado();
+        p5.setSize(1510, 770);
+        p5.setLocation(0,0);
+        
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p5, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        
+        p5.lblAnadir.setText("Añadir Bota de trabajo");
+        p5.cbxTipo.setSelectedIndex(5);
+    }//GEN-LAST:event_pnlBotaTrabajoMouseClicked
+
+    private void pnlBotaRodeoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBotaRodeoMouseClicked
+        AnadirSeleccionado p5 = new AnadirSeleccionado();
+        p5.setSize(1510, 770);
+        p5.setLocation(0,0);
+        
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p5, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        
+        p5.lblAnadir.setText("Añadir Bota de rodeo");
+        p5.cbxTipo.setSelectedIndex(6);
+    }//GEN-LAST:event_pnlBotaRodeoMouseClicked
+
+    private void pnlBotaAltaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBotaAltaMouseClicked
+        AnadirSeleccionado p5 = new AnadirSeleccionado();
+        p5.setSize(1510, 770);
+        p5.setLocation(0,0);
+        
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p5, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        
+        p5.lblAnadir.setText("Añadir Bota alta");
+        p5.cbxTipo.setSelectedIndex(7);
+    }//GEN-LAST:event_pnlBotaAltaMouseClicked
+
+    private void pnlBotinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBotinMouseClicked
+        AnadirSeleccionado p5 = new AnadirSeleccionado();
+        p5.setSize(1510, 770);
+        p5.setLocation(0,0);
+        
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p5, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        
+        p5.lblAnadir.setText("Añadir Botin");
+        p5.cbxTipo.setSelectedIndex(8);
+    }//GEN-LAST:event_pnlBotinMouseClicked
+
+    private void pnlRelojMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlRelojMouseClicked
+        AnadirSeleccionado p5 = new AnadirSeleccionado();
+        p5.setSize(1510, 770);
+        p5.setLocation(0,0);
+        
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p5, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        
+        p5.lblAnadir.setText("Añadir Reloj");
+        p5.cbxTipo.setSelectedIndex(9);
+    }//GEN-LAST:event_pnlRelojMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -253,7 +460,17 @@ public class Anadir extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -262,8 +479,13 @@ public class Anadir extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JPanel pnlAtras;
+    private javax.swing.JPanel pnlBotaAlta;
+    private javax.swing.JPanel pnlBotaRodeo;
+    private javax.swing.JPanel pnlBotaTrabajo;
+    private javax.swing.JPanel pnlBotin;
     private javax.swing.JPanel pnlHuarache;
+    private javax.swing.JPanel pnlReloj;
+    private javax.swing.JPanel pnlTaquete;
     private javax.swing.JPanel pnlTeni;
     private javax.swing.JPanel pnlZapatilla;
     private javax.swing.JPanel pnlZapato;

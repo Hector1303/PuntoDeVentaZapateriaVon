@@ -99,6 +99,9 @@ public class Main extends javax.swing.JFrame {
         pnlApartados = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        pnlProveedor = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         pnlBarra = new javax.swing.JPanel();
         pnlExit = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
@@ -275,6 +278,32 @@ public class Main extends javax.swing.JFrame {
 
         pnlMenu.add(pnlApartados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 750, 410, -1));
 
+        pnlProveedor.setBackground(new java.awt.Color(38, 109, 43));
+        pnlProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlProveedorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlProveedorMouseExited(evt);
+            }
+        });
+        pnlProveedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("  Proveedores");
+        pnlProveedor.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 300, 110));
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/calendario (1).png"))); // NOI18N
+        pnlProveedor.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 110));
+
+        pnlMenu.add(pnlProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 860, 410, -1));
+
         pnlFondo.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 1080));
 
         pnlBarra.setBackground(new java.awt.Color(255, 255, 255));
@@ -424,7 +453,8 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlInicioMouseExited
         if (pnlAnadir.getBackground().getRGB() != -14258901 || pnlVendido.getBackground().getRGB() != -14258901
-                || pnlBuscar.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901)
+                || pnlBuscar.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901
+                || pnlProveedor.getBackground().getRGB() != -14258901)
             resetColor(pnlInicio);
     }//GEN-LAST:event_pnlInicioMouseExited
 
@@ -440,6 +470,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlVendido);
         resetColor(pnlBuscar);
         resetColor(pnlApartados);
+        resetColor(pnlProveedor);
 
         Anadir p2 = new Anadir();
         p2.setSize(1510, 770);
@@ -463,6 +494,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlAnadir);
         resetColor(pnlBuscar);
         resetColor(pnlApartados);
+        resetColor(pnlProveedor);
 
         NuevaVenta p1 = new NuevaVenta();
         p1.setSize(1510, 770);
@@ -481,6 +513,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlAnadir);
         resetColor(pnlVendido);
         resetColor(pnlApartados);
+        resetColor(pnlProveedor);
 
         Buscar p3 = new Buscar();
         p3.setSize(1510, 770);
@@ -495,7 +528,8 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlAnadirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirMouseExited
         if (pnlInicio.getBackground().getRGB() != -14258901 || pnlVendido.getBackground().getRGB() != -14258901
-                || pnlBuscar.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901)
+                || pnlBuscar.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901
+                || pnlProveedor.getBackground().getRGB() != -14258901)
             resetColor(pnlAnadir);
     }//GEN-LAST:event_pnlAnadirMouseExited
 
@@ -506,6 +540,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlAnadir);
         resetColor(pnlBuscar);
         resetColor(pnlApartados);
+        resetColor(pnlProveedor);
 
         Vendido p4 = new Vendido();
         p4.setSize(1510, 770);
@@ -525,7 +560,8 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBuscarMouseExited
         if (pnlInicio.getBackground().getRGB() != -14258901 || pnlVendido.getBackground().getRGB() != -14258901
-                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901)
+                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901
+                || pnlProveedor.getBackground().getRGB() != -14258901)
             resetColor(pnlBuscar);
     }//GEN-LAST:event_pnlBuscarMouseExited
 
@@ -536,7 +572,8 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlVendidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseExited
         if (pnlInicio.getBackground().getRGB() != -14258901 || pnlBuscar.getBackground().getRGB() != -14258901
-                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901)
+                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlApartados.getBackground().getRGB() != -14258901
+                || pnlProveedor.getBackground().getRGB() != -14258901)
             resetColor(pnlVendido);
     }//GEN-LAST:event_pnlVendidoMouseExited
 
@@ -546,7 +583,8 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlApartadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartadosMouseExited
         if (pnlInicio.getBackground().getRGB() != -14258901 || pnlBuscar.getBackground().getRGB() != -14258901
-                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlVendido.getBackground().getRGB() != -14258901)
+                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlVendido.getBackground().getRGB() != -14258901
+                || pnlProveedor.getBackground().getRGB() != -14258901)
             resetColor(pnlApartados);
     }//GEN-LAST:event_pnlApartadosMouseExited
 
@@ -557,6 +595,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlAnadir);
         resetColor(pnlBuscar);
         resetColor(pnlVendido);
+        resetColor(pnlProveedor);
 
         Apartado p5 = new Apartado();
         p5.setSize(1510, 770);
@@ -568,6 +607,37 @@ public class Main extends javax.swing.JFrame {
         pnlJFrames.repaint();
 
     }//GEN-LAST:event_pnlApartadosMouseClicked
+
+    private void pnlProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlProveedorMouseClicked
+        
+        setColor(pnlProveedor);
+        resetColor(pnlInicio);
+        resetColor(pnlAnadir);
+        resetColor(pnlBuscar);
+        resetColor(pnlVendido);
+        resetColor(pnlApartados);
+
+        Proveedores p6 = new Proveedores();
+        p6.setSize(1510, 770);
+        p6.setLocation(0, 0);
+
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p6, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        
+    }//GEN-LAST:event_pnlProveedorMouseClicked
+
+    private void pnlProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlProveedorMouseEntered
+        setColor(pnlProveedor);
+    }//GEN-LAST:event_pnlProveedorMouseEntered
+
+    private void pnlProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlProveedorMouseExited
+        if (pnlInicio.getBackground().getRGB() != -14258901 || pnlBuscar.getBackground().getRGB() != -14258901
+                || pnlAnadir.getBackground().getRGB() != -14258901 || pnlVendido.getBackground().getRGB() != -14258901
+                || pnlApartados.getBackground().getRGB() != -14258901)
+            resetColor(pnlProveedor);
+    }//GEN-LAST:event_pnlProveedorMouseExited
 
     /**
      * Establece un panel del color rgb que pongamos Se utilizará para cuando
@@ -630,6 +700,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -652,6 +724,7 @@ public class Main extends javax.swing.JFrame {
     public static javax.swing.JPanel pnlInicio;
     public static javax.swing.JPanel pnlJFrames;
     private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnlProveedor;
     public static javax.swing.JPanel pnlVendido;
     // End of variables declaration//GEN-END:variables
 }

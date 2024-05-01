@@ -42,7 +42,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         pnlAnadirSeleccionado = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         txfPrecio = new com.raven.zapateria.textfield.TextField();
         txfEstilo1 = new com.raven.zapateria.textfield.TextField();
         txfNumero1 = new com.raven.zapateria.textfield.TextField();
@@ -84,19 +83,19 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Sexo");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 230, 60, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 230, 60, 20));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Precio");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 340, 100, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 340, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Tipo");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 470, 110, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 470, 110, 30));
 
-        pnlAnadirSeleccionado.setBackground(new java.awt.Color(21, 101, 192));
+        pnlAnadirSeleccionado.setBackground(new java.awt.Color(73, 150, 50));
         pnlAnadirSeleccionado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pnlAnadirSeleccionado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,16 +110,13 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         });
         pnlAnadirSeleccionado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Añadir");
-        pnlAnadirSeleccionado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
+        pnlAnadirSeleccionado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 70));
 
-        add(pnlAnadirSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 650, 150, 50));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
+        add(pnlAnadirSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 650, 220, 70));
 
         txfPrecio.setCaretColor(new java.awt.Color(0, 0, 0));
         txfPrecio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -132,7 +128,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 txfPrecioActionPerformed(evt);
             }
         });
-        add(txfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 370, 230, -1));
+        add(txfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 370, 230, -1));
 
         txfEstilo1.setCaretColor(new java.awt.Color(0, 0, 0));
         txfEstilo1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -169,7 +165,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 cbxTipoActionPerformed(evt);
             }
         });
-        add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 500, 230, 50));
+        add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 500, 230, 50));
 
         cbxSexo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Teni", "Zapato", "Zapatilla", "Huarache", "Taquete", "Bota de trabajo", "Bota de rodeo", "Bota alta", "Botin", "Reloj" }));
         cbxSexo1.setSelectedIndex(-1);
@@ -180,18 +176,18 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 cbxSexo1ActionPerformed(evt);
             }
         });
-        add(cbxSexo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 230, 50));
+        add(cbxSexo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 250, 230, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlAnadirSeleccionadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirSeleccionadoMouseEntered
         
-        pnlAnadirSeleccionado.setBackground(new Color(21,101,192));
+        pnlAnadirSeleccionado.setBackground(new Color(38, 109, 43));
         
     }//GEN-LAST:event_pnlAnadirSeleccionadoMouseEntered
 
     private void pnlAnadirSeleccionadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirSeleccionadoMouseExited
         
-        pnlAnadirSeleccionado.setBackground(new Color(18,90,173));
+        pnlAnadirSeleccionado.setBackground(new Color(73,150,50));
         
     }//GEN-LAST:event_pnlAnadirSeleccionadoMouseExited
 
@@ -214,7 +210,9 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null,"Faltan ingresar datos");
             } else {
                 
-                if(ModeloDAO.guardar(Integer.parseInt(codigo), color, Double.parseDouble(numero), Integer.parseInt(tipo), Integer.parseInt(sexo), Double.parseDouble(precio), Integer.parseInt(estilo))){
+                if(ModeloDAO.guardar(Integer.parseInt(codigo), color, Double.parseDouble(numero), 
+                        Integer.parseInt(tipo), Integer.parseInt(sexo), Double.parseDouble(precio), 
+                        Integer.parseInt(estilo))){
                 JOptionPane.showMessageDialog(null,"Modelo añadido");
                 
                 Buscar p3 = new Buscar();
@@ -255,7 +253,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     private com.raven.zapateria.combobox.Combobox cbxSexo1;
     protected com.raven.zapateria.combobox.Combobox cbxTipo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

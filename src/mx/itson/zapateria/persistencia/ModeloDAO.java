@@ -86,7 +86,7 @@ public class ModeloDAO {
         boolean resultado = false;
         try {
             Connection conexion = Conexion.get();
-            String query = "INSERT INTO modelo (codigo, color, numero, tipo, sexo, precio, estilo) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO almacen.modelo (codigo, color, numero, tipo, sexo, precio, estilo) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conexion.prepareStatement(query);
             statement.setInt(1,codigo);
             statement.setString(2, color);
