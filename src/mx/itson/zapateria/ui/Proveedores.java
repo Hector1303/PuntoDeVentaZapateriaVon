@@ -4,6 +4,7 @@
  */
 package mx.itson.zapateria.ui;
 
+import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.zapateria.entidades.Proveedor;
@@ -50,13 +51,17 @@ public class Proveedores extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProveedor = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        pnlGuardar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txfNombre = new com.raven.zapateria.textfield.TextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1510, 770));
+        setMinimumSize(new java.awt.Dimension(1510, 770));
+        setPreferredSize(new java.awt.Dimension(1510, 770));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -77,48 +82,80 @@ public class Proveedores extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 670, -1));
 
-        jPanel1.setBackground(new java.awt.Color(73, 150, 50));
+        pnlGuardar.setBackground(new java.awt.Color(73, 150, 50));
+        pnlGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlGuardarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlGuardarMouseExited(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Guardar");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlGuardarLayout = new javax.swing.GroupLayout(pnlGuardar);
+        pnlGuardar.setLayout(pnlGuardarLayout);
+        pnlGuardarLayout.setHorizontalGroup(
+            pnlGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlGuardarLayout.setVerticalGroup(
+            pnlGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 240, 90));
+        add(pnlGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 240, 90));
 
         txfNombre.setLabelText("");
         txfNombre.setLineColor(new java.awt.Color(73, 150, 50));
         txfNombre.setSelectionColor(new java.awt.Color(73, 150, 50));
-        add(txfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 230, -1));
+        add(txfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 230, -1));
 
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 100, 20, 600));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Nombre del proveedor");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 230, 30));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Agregar proveedor");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 750, 50));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Nombre del proveedor");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pnlGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGuardarMouseEntered
+        pnlGuardar.setBackground(new Color(38, 109, 43));
+    }//GEN-LAST:event_pnlGuardarMouseEntered
+
+    private void pnlGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGuardarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlGuardarMouseClicked
+
+    private void pnlGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGuardarMouseExited
+        pnlGuardar.setBackground(new Color(73, 150, 50));
+    }//GEN-LAST:event_pnlGuardarMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel pnlGuardar;
     private javax.swing.JTable tblProveedor;
     private com.raven.zapateria.textfield.TextField txfNombre;
     // End of variables declaration//GEN-END:variables

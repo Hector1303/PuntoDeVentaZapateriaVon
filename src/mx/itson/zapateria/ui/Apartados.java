@@ -5,18 +5,24 @@
 package mx.itson.zapateria.ui;
 
 import java.awt.Color;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import mx.itson.zapateria.entidades.Apartado;
+import mx.itson.zapateria.persistencia.ApartadoDAO;
+import static mx.itson.zapateria.ui.Buscar.tblBuscar;
 
 /**
  *
  * @author chiqu
  */
-public class Apartado extends javax.swing.JPanel {
+public class Apartados extends javax.swing.JPanel {
 
     /**
      * Creates new form Apartado
      */
-    public Apartado() {
+    public Apartados() {
         initComponents();
+        llenarTabla();
     }
 
     
@@ -32,11 +38,11 @@ public class Apartado extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblApartados = new javax.swing.JTable();
-        pnlApartar = new javax.swing.JPanel();
+        pnlAbonar = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        pnlApartar1 = new javax.swing.JPanel();
+        pnlNuevoApartado = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -61,14 +67,14 @@ public class Apartado extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 1380, 500));
 
-        pnlApartar.setBackground(new java.awt.Color(73, 150, 50));
-        pnlApartar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlApartar.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlAbonar.setBackground(new java.awt.Color(73, 150, 50));
+        pnlAbonar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlAbonar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlApartarMouseEntered(evt);
+                pnlAbonarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlApartarMouseExited(evt);
+                pnlAbonarMouseExited(evt);
             }
         });
 
@@ -77,22 +83,22 @@ public class Apartado extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Abonar o liquidar");
 
-        javax.swing.GroupLayout pnlApartarLayout = new javax.swing.GroupLayout(pnlApartar);
-        pnlApartar.setLayout(pnlApartarLayout);
-        pnlApartarLayout.setHorizontalGroup(
-            pnlApartarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlApartarLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlAbonarLayout = new javax.swing.GroupLayout(pnlAbonar);
+        pnlAbonar.setLayout(pnlAbonarLayout);
+        pnlAbonarLayout.setHorizontalGroup(
+            pnlAbonarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAbonarLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        pnlApartarLayout.setVerticalGroup(
-            pnlApartarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlApartarLayout.createSequentialGroup()
+        pnlAbonarLayout.setVerticalGroup(
+            pnlAbonarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAbonarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 660, 220, 70));
+        add(pnlAbonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 660, 220, 70));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
@@ -103,14 +109,17 @@ public class Apartado extends javax.swing.JPanel {
         jLabel9.setText("Apartados");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 59));
 
-        pnlApartar1.setBackground(new java.awt.Color(73, 150, 50));
-        pnlApartar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlApartar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlNuevoApartado.setBackground(new java.awt.Color(73, 150, 50));
+        pnlNuevoApartado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlNuevoApartado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlNuevoApartadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlApartar1MouseEntered(evt);
+                pnlNuevoApartadoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlApartar1MouseExited(evt);
+                pnlNuevoApartadoMouseExited(evt);
             }
         });
 
@@ -119,35 +128,64 @@ public class Apartado extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Nuevo apartado");
 
-        javax.swing.GroupLayout pnlApartar1Layout = new javax.swing.GroupLayout(pnlApartar1);
-        pnlApartar1.setLayout(pnlApartar1Layout);
-        pnlApartar1Layout.setHorizontalGroup(
-            pnlApartar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlNuevoApartadoLayout = new javax.swing.GroupLayout(pnlNuevoApartado);
+        pnlNuevoApartado.setLayout(pnlNuevoApartadoLayout);
+        pnlNuevoApartadoLayout.setHorizontalGroup(
+            pnlNuevoApartadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
-        pnlApartar1Layout.setVerticalGroup(
-            pnlApartar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlNuevoApartadoLayout.setVerticalGroup(
+            pnlNuevoApartadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
 
-        add(pnlApartar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 660, 220, 70));
+        add(pnlNuevoApartado, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 660, 220, 70));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pnlApartarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseEntered
-        pnlApartar.setBackground(new Color(38,109,43));
-    }//GEN-LAST:event_pnlApartarMouseEntered
+    private void llenarTabla() {
+        List<Apartado> apartados = ApartadoDAO.obtener();
+        DefaultTableModel model = (DefaultTableModel) tblBuscar.getModel();
+        model.setRowCount(0);
 
-    private void pnlApartarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseExited
-        pnlApartar.setBackground(new Color(73,150,50));
-    }//GEN-LAST:event_pnlApartarMouseExited
+        for (Apartado a : apartados) {
+            model.addRow(new Object[]{
+                a.getNombre(),
+                a.getCelular(),
+                a.getCodigo(),
+                a.getColor(),
+                a.getNumero(),
+                a.getTipo(),
+                a.getSexo(),
+                "$"+a.getPrecio(),
+                a.getEstilo(),
+                a.getFechaApartado(),
+                a.getFechaVencimiento(),
+                a.getNumeroApartado()
+            });
+        }
+    }
+    
+    private void pnlAbonarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAbonarMouseEntered
+        pnlAbonar.setBackground(new Color(38,109,43));
+    }//GEN-LAST:event_pnlAbonarMouseEntered
 
-    private void pnlApartar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartar1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlApartar1MouseEntered
+    private void pnlAbonarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAbonarMouseExited
+        pnlAbonar.setBackground(new Color(73,150,50));
+    }//GEN-LAST:event_pnlAbonarMouseExited
 
-    private void pnlApartar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartar1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlApartar1MouseExited
+    private void pnlNuevoApartadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNuevoApartadoMouseEntered
+       pnlNuevoApartado.setBackground(new Color(38,109,43));
+    }//GEN-LAST:event_pnlNuevoApartadoMouseEntered
+
+    private void pnlNuevoApartadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNuevoApartadoMouseExited
+       pnlNuevoApartado.setBackground(new Color(73,150,50));
+    }//GEN-LAST:event_pnlNuevoApartadoMouseExited
+
+    private void pnlNuevoApartadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNuevoApartadoMouseClicked
+        
+        
+        
+    }//GEN-LAST:event_pnlNuevoApartadoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -156,8 +194,8 @@ public class Apartado extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel pnlApartar;
-    private javax.swing.JPanel pnlApartar1;
+    private javax.swing.JPanel pnlAbonar;
+    private javax.swing.JPanel pnlNuevoApartado;
     private javax.swing.JTable tblApartados;
     // End of variables declaration//GEN-END:variables
 }

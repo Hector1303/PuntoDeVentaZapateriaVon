@@ -90,6 +90,7 @@ public class Vendido extends javax.swing.JPanel {
                 v.getSexo(),
                 "$"+v.getPrecio(),
                 v.getEstilo(),
+                v.getProveedor(),
                 formato.format(v.getFecha())
             });
         }
@@ -145,17 +146,17 @@ public class Vendido extends javax.swing.JPanel {
 
         tblVendido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Color", "Numero", "Tipo de teni", "Sexo", "Precio", "Estilo", "Fecha"
+                "Codigo", "Color", "Numero", "Tipo de teni", "Sexo", "Precio", "Estilo", "Proveedor", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

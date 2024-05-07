@@ -37,7 +37,9 @@ public class ModeloDAO {
         try {
             Connection conexion = Conexion.get();
             Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * from modelo");
+            ResultSet rs = statement.executeQuery("SELECT codigo, color, numero, tipo, sexo, precio, estilo, proveedor, \n" +
+"       (SELECT COUNT(*) FROM modelo m2 WHERE m2.codigo = m.codigo) AS cantidad\n" +
+"FROM modelo m;");
 
             while (rs.next()) {
 
@@ -61,6 +63,9 @@ public class ModeloDAO {
                           Sexo.UNISEX);
                 m.setPrecio(rs.getDouble(6));
                 m.setEstilo(rs.getInt(7));
+                m.setProveedor(rs.getString(8));
+                m.setCantidad(rs.getInt(9));
+                
 
                 modelos.add(m);
             }
@@ -82,11 +87,11 @@ public class ModeloDAO {
      * @param estilo 
      * @return Obtiene los datos y los guarda en la base datos almacen y los muestram en la tabla Modelos.
      */
-    public static boolean guardar( int codigo, String color, double numero, int tipo, int sexo, Double precio, int estilo) {
+    public static boolean guardar( int codigo, String color, double numero, int tipo, int sexo, Double precio, int estilo, String proveedor) {
         boolean resultado = false;
         try {
             Connection conexion = Conexion.get();
-            String query = "INSERT INTO almacen.modelo (codigo, color, numero, tipo, sexo, precio, estilo) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO almacen.modelo (codigo, color, numero, tipo, sexo, precio, estilo, proveedor) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conexion.prepareStatement(query);
             statement.setInt(1,codigo);
             statement.setString(2, color);
@@ -95,6 +100,7 @@ public class ModeloDAO {
             statement.setInt(5, sexo);
             statement.setDouble(6,precio);
             statement.setInt(7,estilo);
+            statement.setString(8, proveedor);
 
             statement.execute();
 
@@ -190,7 +196,7 @@ public class ModeloDAO {
         try {
             Connection conexion = Conexion.get();
             Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM almacen.modelo WHERE codigo = '" + buscar + "'");
+            ResultSet rs = statement.executeQuery("SELECT codigo, color, numero, tipo, sexo, precio, estilo, proveedor FROM almacen.modelo WHERE codigo = '" + buscar + "'");
 
             while (rs.next()) {
 
@@ -214,6 +220,7 @@ public class ModeloDAO {
                           Sexo.UNISEX);
                 m.setPrecio(rs.getDouble(6));
                 m.setEstilo(rs.getInt(7));
+                m.setProveedor(rs.getString(8));
 
                 modelos.add(m);
             }
@@ -234,8 +241,8 @@ public class ModeloDAO {
             Connection conexion = Conexion.get();
             Statement statement = conexion.createStatement();
             
-            int n = statement.executeUpdate("INSERT INTO almacen.venta(codigo, color, numero, tipo, sexo, precio, estilo, fecha) "
-                    + "SELECT codigo, color, numero, tipo, sexo, precio, estilo, CURDATE() FROM almacen.modelo WHERE (codigo=" + Buscar.tblBuscar.getValueAt(filaSeleccionada,0)+")");
+            int n = statement.executeUpdate("INSERT INTO almacen.venta(codigo, color, numero, tipo, sexo, precio, estilo, proveedor, fecha) "
+                    + "SELECT codigo, color, numero, tipo, sexo, precio, estilo, proveedor, CURDATE() FROM almacen.modelo WHERE (codigo=" + Buscar.tblBuscar.getValueAt(filaSeleccionada,0)+")");
             
             if (n >= 0) {
                 System.out.println("Modelo transferido a venta");
@@ -244,6 +251,52 @@ public class ModeloDAO {
         } catch (Exception e) {
             System.out.println("Ocurrio un error al intentar transferir el modelo: " + e);
         }
+    }
+    
+     public static int crearIdTemporal() {
+        
+        
+        int idTemporal = 0;
+
+        try {
+            Connection conexion = Conexion.get();
+            Statement statement = conexion.createStatement();
+            // Agregar una fila en la tabla de productos (puedes usar cualquier tabla que tenga autoincremento)
+            statement.executeUpdate("INSERT INTO almacen.modelo (codigo) VALUES (123)");
+
+            // Obtener el ID generado
+            idTemporal = obtenerUltimoIdInsertado(statement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+
+        return idTemporal;
+    }
+     
+    private static int obtenerUltimoIdInsertado(Statement statement) throws SQLException {
+        int ultimoId = 0;
+        var rs = statement.executeQuery("SELECT LAST_INSERT_ID()");
+        if (rs.next()) {
+            ultimoId = rs.getInt(1);
+        }
+        rs.close();
+        return ultimoId;
+    }
+     
+    public static void liberarIdProducto(int idProducto) {
+        
+
+        try {
+            
+            Connection conexion = Conexion.get();
+            Statement statement = conexion.createStatement();
+            
+
+            // Eliminar la fila insertada con el ID específico
+            statement.executeUpdate("DELETE FROM almacen.modelo WHERE id = " + idProducto);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
     }
     
 }

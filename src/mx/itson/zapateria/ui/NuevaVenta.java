@@ -265,7 +265,7 @@ public class NuevaVenta extends javax.swing.JPanel {
                 txfCodigoKeyReleased(evt);
             }
         });
-        add(txfCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 230, -1));
+        add(txfCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 230, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -368,7 +368,7 @@ public class NuevaVenta extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel plnAnadirAlCarrito;
     private javax.swing.JTable tblCarrito;
-    private com.raven.zapateria.textfield.TextField txfCodigo;
+    public static com.raven.zapateria.textfield.TextField txfCodigo;
     private com.raven.zapateria.textfield.TextField txfColor;
     private com.raven.zapateria.textfield.TextField txfEstilo;
     private com.raven.zapateria.textfield.TextField txfPrecio;

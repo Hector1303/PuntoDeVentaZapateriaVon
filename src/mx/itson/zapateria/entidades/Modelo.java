@@ -20,6 +20,36 @@ public class Modelo {
     private Double precio;
     private Tipo tipo;
     private int estilo;
+    private int cantidad;
+    private String proveedor;
+    
+    /**
+     * @return the proveedor
+     */
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    /**
+     * @param proveedor the proveedor to set
+     */
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
+    }
+    
+    /**
+     * @return the cantidad
+     */
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * @param cantidad the cantidad to set
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
     
     /**
      * @return the estilo

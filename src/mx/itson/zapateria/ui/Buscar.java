@@ -4,11 +4,21 @@
  */
 package mx.itson.zapateria.ui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.zapateria.entidades.Modelo;
 import mx.itson.zapateria.persistencia.ModeloDAO;
+import static mx.itson.zapateria.ui.Main.pnlAnadir;
+import static mx.itson.zapateria.ui.Main.pnlApartados;
+import static mx.itson.zapateria.ui.Main.pnlBuscar;
+import static mx.itson.zapateria.ui.Main.pnlInicio;
+import static mx.itson.zapateria.ui.Main.pnlJFrames;
+import static mx.itson.zapateria.ui.Main.pnlProveedor;
+import static mx.itson.zapateria.ui.Main.pnlVendido;
 
 /**
  *
@@ -16,18 +26,16 @@ import mx.itson.zapateria.persistencia.ModeloDAO;
  */
 public class Buscar extends javax.swing.JPanel {
 
-    
     /**
      * Creates new form Buscar
      */
     public Buscar() {
         initComponents();
-        
+
         llenarTabla();
-        
+
     }
-    
-    
+
     private void llenarTabla() {
         List<Modelo> modelos = ModeloDAO.obtener();
         DefaultTableModel model = (DefaultTableModel) tblBuscar.getModel();
@@ -40,17 +48,20 @@ public class Buscar extends javax.swing.JPanel {
                 m.getNumero(),
                 m.getTipo(),
                 m.getSexo(),
-                "$"+m.getPrecio(),
-                m.getEstilo()
+                "$" + m.getPrecio(),
+                m.getEstilo(),
+                m.getCantidad(),
+                m.getProveedor()
             });
         }
     }
+
     /**
-     * 
-     * @param buscar 
+     *
+     * @param buscar
      */
-    public void buscar(String buscar){
-        
+    public void buscar(String buscar) {
+
         List<Modelo> modelos = ModeloDAO.buscar(buscar);
         DefaultTableModel model = (DefaultTableModel) tblBuscar.getModel();
         model.setRowCount(0);
@@ -62,14 +73,13 @@ public class Buscar extends javax.swing.JPanel {
                 m.getNumero(),
                 m.getTipo(),
                 m.getSexo(),
-                "$"+m.getPrecio(),
-                m.getEstilo()
+                "$" + m.getPrecio(),
+                m.getEstilo(),
+                m.getCantidad()
             });
         }
-        
+
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,25 +119,25 @@ public class Buscar extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/buscar (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 30, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 30, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 310, 40));
 
         tblBuscar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo"
+                "Codigo", "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo", "Cantidad", "Proveedor"
             }
         ));
         jScrollPane1.setViewportView(tblBuscar);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 970, 460));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 1070, 540));
 
         pnlVendido.setBackground(new java.awt.Color(73, 150, 50));
         pnlVendido.setForeground(new java.awt.Color(21, 101, 192));
@@ -157,7 +167,7 @@ public class Buscar extends javax.swing.JPanel {
         jLabel4.setText("Vender");
         pnlVendido.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 30));
 
-        add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 200, 170, 90));
+        add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 240, 170, 90));
 
         pnlApartar.setBackground(new java.awt.Color(73, 150, 50));
         pnlApartar.setForeground(new java.awt.Color(21, 101, 192));
@@ -187,7 +197,7 @@ public class Buscar extends javax.swing.JPanel {
         jLabel6.setText("Apartar");
         pnlApartar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 30));
 
-        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 310, 170, 90));
+        add(pnlApartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 350, 170, 90));
 
         pnlEliminar.setBackground(new java.awt.Color(192, 42, 35));
         pnlEliminar.setForeground(new java.awt.Color(21, 101, 192));
@@ -217,7 +227,7 @@ public class Buscar extends javax.swing.JPanel {
         jLabel8.setText("Eliminar");
         pnlEliminar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 170, -1));
 
-        add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 510, 170, 90));
+        add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 550, 170, 90));
 
         txfBuscar.setLabelText("Codigo/Color/Numero/Tipo/Sexo/Precio/Estilo");
         txfBuscar.setLineColor(new java.awt.Color(73, 150, 50));
@@ -235,22 +245,46 @@ public class Buscar extends javax.swing.JPanel {
                 txfBuscarKeyReleased(evt);
             }
         });
-        add(txfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 260, -1));
+        add(txfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 260, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlVendidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseEntered
-        pnlVendido.setBackground(new Color(38,109,43));
+        pnlVendido.setBackground(new Color(38, 109, 43));
     }//GEN-LAST:event_pnlVendidoMouseEntered
 
     private void pnlVendidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseExited
-        pnlVendido.setBackground(new Color(73,150,50));
+        pnlVendido.setBackground(new Color(73, 150, 50));
     }//GEN-LAST:event_pnlVendidoMouseExited
 
     private void pnlVendidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVendidoMouseClicked
-        ModeloDAO modelo = new ModeloDAO();
+
+        try {
+            int filaSeleccionada = Buscar.tblBuscar.getSelectedRow();
+        String codigo = tblBuscar.getValueAt(filaSeleccionada, 0).toString();
+
+        NuevaVenta p4 = new NuevaVenta();
+        p4.setSize(1510, 770);
+        p4.setLocation(0, 0);
+        p4.txfCodigo.setText(codigo);
+        p4.buscar(codigo);
+
+        setColor(pnlInicio);
+        resetColor(pnlVendido);
+        resetColor(pnlAnadir);
+        resetColor(pnlBuscar);
+        resetColor(pnlApartados);
+        resetColor(pnlProveedor);
+
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p4, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Selecciona un modelo");
+        }
         
-        modelo.transferirModeloAVendido();
-        modelo.eliminarModelo();
+
+
     }//GEN-LAST:event_pnlVendidoMouseClicked
 
     private void pnlApartarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseClicked
@@ -258,11 +292,11 @@ public class Buscar extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlApartarMouseClicked
 
     private void pnlApartarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseEntered
-        pnlApartar.setBackground(new Color(38,109,43));
+        pnlApartar.setBackground(new Color(38, 109, 43));
     }//GEN-LAST:event_pnlApartarMouseEntered
 
     private void pnlApartarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseExited
-        pnlApartar.setBackground(new Color(73,150,50));
+        pnlApartar.setBackground(new Color(73, 150, 50));
     }//GEN-LAST:event_pnlApartarMouseExited
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
@@ -270,30 +304,41 @@ public class Buscar extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
-        pnlEliminar.setBackground(new Color(119,42,35));
+        pnlEliminar.setBackground(new Color(119, 42, 35));
     }//GEN-LAST:event_pnlEliminarMouseEntered
 
     private void pnlEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseExited
-        pnlEliminar.setBackground(new Color(192,42,35));
+        pnlEliminar.setBackground(new Color(192, 42, 35));
     }//GEN-LAST:event_pnlEliminarMouseExited
 
     private void txfBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMousePressed
-        if(txfBuscar.getText().equals("Codigo/Color/Numero/Tipo/Sexo/Precio/Estilo")){
+        if (txfBuscar.getText().equals("Codigo/Color/Numero/Tipo/Sexo/Precio/Estilo")) {
             txfBuscar.setText("");
             txfBuscar.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_txfBuscarMousePressed
 
     private void txfBuscarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txfBuscarMouseReleased
-        
+
     }//GEN-LAST:event_txfBuscarMouseReleased
 
     private void txfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfBuscarKeyReleased
         buscar(txfBuscar.getText());
     }//GEN-LAST:event_txfBuscarKeyReleased
 
-    
-    
+    public void setColor(JPanel panel) {
+        panel.setBackground(new Color(73, 150, 50));
+    }
+
+    /**
+     * Establece un panel del color rgb que pongamos Se ultilizará para cuando
+     * se deje de seleccionar un panel del menú en el ui principal
+     *
+     * @param panel Nombre del panel que queramos establecerle el color
+     */
+    public void resetColor(JPanel panel) {
+        panel.setBackground(new Color(38, 109, 43));
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

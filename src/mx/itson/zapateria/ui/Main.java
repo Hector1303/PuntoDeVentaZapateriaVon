@@ -299,7 +299,7 @@ public class Main extends javax.swing.JFrame {
         pnlProveedor.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 300, 110));
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/calendario (1).png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/proveedor.png"))); // NOI18N
         pnlProveedor.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 110));
 
         pnlMenu.add(pnlProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 860, 410, -1));
@@ -597,7 +597,7 @@ public class Main extends javax.swing.JFrame {
         resetColor(pnlVendido);
         resetColor(pnlProveedor);
 
-        Apartado p5 = new Apartado();
+        Apartados p5 = new Apartados();
         p5.setSize(1510, 770);
         p5.setLocation(0, 0);
 
@@ -715,7 +715,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblTiempo;
     public static javax.swing.JPanel pnlAnadir;
-    private javax.swing.JPanel pnlApartados;
+    public static javax.swing.JPanel pnlApartados;
     private javax.swing.JPanel pnlBarra;
     public static javax.swing.JPanel pnlBuscar;
     private javax.swing.JPanel pnlEncabezado;
@@ -724,7 +724,7 @@ public class Main extends javax.swing.JFrame {
     public static javax.swing.JPanel pnlInicio;
     public static javax.swing.JPanel pnlJFrames;
     private javax.swing.JPanel pnlMenu;
-    private javax.swing.JPanel pnlProveedor;
+    public static javax.swing.JPanel pnlProveedor;
     public static javax.swing.JPanel pnlVendido;
     // End of variables declaration//GEN-END:variables
 }

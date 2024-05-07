@@ -57,6 +57,7 @@ public class VentaDAO {
                 v.setPrecio(rs.getDouble(6));
                 v.setEstilo(rs.getInt(7));
                 v.setFecha(rs.getDate(8));
+                v.setProveedor(rs.getString(9));
 
                 ventas.add(v);
             }

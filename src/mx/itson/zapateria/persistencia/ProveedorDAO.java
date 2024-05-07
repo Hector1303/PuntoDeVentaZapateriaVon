@@ -12,17 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.zapateria.entidades.Proveedor;
-import mx.itson.zapateria.enumerador.Sexo;
-import mx.itson.zapateria.enumerador.Tipo;
 
 /**
  *
  * @author Hector
  */
 public class ProveedorDAO {
-    
+
     /**
      * Obtiene los modelos de la tabla de Modelo en la base de datos almacen.
+     *
      * @return Datos de los modelos.
      */
     public static List<Proveedor> obtener() {
@@ -49,5 +48,25 @@ public class ProveedorDAO {
         }
         return proveedores;
     }
-    
+
+    public static List<String> obtenerValoresColumna(String nombreColumna) {
+
+        List<String> valores = new ArrayList<>();
+
+        try {
+            Connection conexion = Conexion.get();
+            Statement statement = conexion.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT " + nombreColumna + " from almacen.proveedor");
+
+            while (rs.next()) {
+                valores.add(rs.getString(nombreColumna));
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error: " + e.toString());
+        }
+
+        return valores;
+    }
+
 }
