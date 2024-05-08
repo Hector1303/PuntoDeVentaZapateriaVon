@@ -10,14 +10,57 @@ import java.util.Date;
  *
  * @author chiqu
  */
-public class Apartado extends Modelo{
-
+public class Apartado extends Modelo {
+    
     private String nombre;
     private String celular;
-    private Date FechaVencimiento;
-    private Date FechaApartado;
+    private Date fechaVencimiento;
+    private Date fechaApartado;
     private int numeroApartado;
+    private double restante;
     
+    /**
+     * @return the fechaVencimiento
+     */
+    public Date getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    /**
+     * @param fechaVencimiento the fechaVencimiento to set
+     */
+    public void setFechaVencimiento(Date fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    /**
+     * @return the fechaApartado
+     */
+    public Date getFechaApartado() {
+        return fechaApartado;
+    }
+
+    /**
+     * @param fechaApartado the fechaApartado to set
+     */
+    public void setFechaApartado(Date fechaApartado) {
+        this.fechaApartado = fechaApartado;
+    }
+
+    /**
+     * @return the restante
+     */
+    public double getRestante() {
+        return restante;
+    }
+
+    /**
+     * @param restante the restante to set
+     */
+    public void setRestante(double restante) {
+        this.restante = restante;
+    }
+
     /**
      * @return the nombre
      */
@@ -47,34 +90,6 @@ public class Apartado extends Modelo{
     }
 
     /**
-     * @return the FechaVencimiento
-     */
-    public Date getFechaVencimiento() {
-        return FechaVencimiento;
-    }
-
-    /**
-     * @param FechaVencimiento the FechaVencimiento to set
-     */
-    public void setFechaVencimiento(Date FechaVencimiento) {
-        this.FechaVencimiento = FechaVencimiento;
-    }
-
-    /**
-     * @return the FechaApartado
-     */
-    public Date getFechaApartado() {
-        return FechaApartado;
-    }
-
-    /**
-     * @param FechaApartado the FechaApartado to set
-     */
-    public void setFechaApartado(Date FechaApartado) {
-        this.FechaApartado = FechaApartado;
-    }
-
-    /**
      * @return the numeroApartado
      */
     public int getNumeroApartado() {
@@ -87,7 +102,5 @@ public class Apartado extends Modelo{
     public void setNumeroApartado(int numeroApartado) {
         this.numeroApartado = numeroApartado;
     }
-    
-    
-    
+
 }

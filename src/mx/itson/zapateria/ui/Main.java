@@ -68,6 +68,8 @@ public class Main extends javax.swing.JFrame {
         lblTiempo.setText(horaFormateada.toUpperCase());
 
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -237,8 +239,8 @@ public class Main extends javax.swing.JFrame {
 
         pnlMenu.add(pnlVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 410, 110));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo Zapateria Von 340x191.png"))); // NOI18N
-        pnlMenu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 310, 140));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/zapateria/imagenes/Logo_zapateria_cuadrado 350px.png"))); // NOI18N
+        pnlMenu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, -40, 340, 210));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -658,6 +660,8 @@ public class Main extends javax.swing.JFrame {
     public void resetColor(JPanel panel) {
         panel.setBackground(new Color(38, 109, 43));
     }
+    
+    
 
     /**
      * @param args the command line arguments

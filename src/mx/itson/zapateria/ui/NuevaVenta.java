@@ -4,11 +4,34 @@
  */
 package mx.itson.zapateria.ui;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.zapateria.entidades.Modelo;
+import mx.itson.zapateria.persistencia.Conexion;
 import mx.itson.zapateria.persistencia.ModeloDAO;
+import mx.itson.zapateria.persistencia.VentaDAO;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -43,13 +66,13 @@ public class NuevaVenta extends javax.swing.JPanel {
                 if (tipo.equals(cbxTipo.getItemAt(i))) {
                     cbxTipo.setSelectedIndex(i);
                     break;
-                }else if(tipo.equals("Botatrabajo" )){
+                } else if (tipo.equals("Botatrabajo")) {
                     cbxTipo.setSelectedIndex(5);
                     break;
-                }else if(tipo.equals("Botarodeo")){
+                } else if (tipo.equals("Botarodeo")) {
                     cbxTipo.setSelectedIndex(6);
                     break;
-                }else if(tipo.equals("Botaalta")){
+                } else if (tipo.equals("Botaalta")) {
                     cbxTipo.setSelectedIndex(7);
                     break;
                 }
@@ -79,6 +102,170 @@ public class NuevaVenta extends javax.swing.JPanel {
 
         }
     }
+    
+    public static int obtenerNumeroNotaVenta() {
+    int numeroNota = -1;
+    try {
+        Connection conexion = Conexion.get();
+        String query = "SELECT numero FROM almacen.numero_nota_venta";
+        Statement statement = conexion.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            numeroNota = resultSet.getInt("numero");
+        }
+        resultSet.close();
+        statement.close();
+    } catch (Exception e) {
+        System.out.println("Error al obtener el número de nota de venta: " + e.getMessage());
+    }
+    return numeroNota;
+}
+
+    private void pdf() {
+        try {
+            FileOutputStream archivo;
+            File file = new File("C:\\Users\\chiqu\\OneDrive\\Documentos\\NetBeansProjects\\Zapateria\\src\\mx\\itson\\zapateria\\pdf/venta"+obtenerNumeroNotaVenta()+".pdf");
+            archivo = new FileOutputStream(file);
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, archivo);
+            doc.open();
+            Image img = Image.getInstance("C:\\Users\\chiqu\\OneDrive\\Documentos\\NetBeansProjects\\Zapateria\\src\\mx\\itson\\zapateria\\imagenes/logo_zapateria_pdf.png");
+
+            Paragraph imagen = new Paragraph();
+            imagen.add(Chunk.NEWLINE);
+            imagen.add(img);
+
+            PdfPTable logo = new PdfPTable(1);
+            logo.setWidthPercentage(40);
+            logo.getDefaultCell().setBorder(0);
+            logo.setHorizontalAlignment(Element.ALIGN_CENTER);
+            logo.addCell(img);
+            doc.add(logo);
+
+            Paragraph fecha = new Paragraph();
+            Font negrita = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, BaseColor.BLACK);
+            fecha.add(Chunk.NEWLINE);
+            Date date = new Date();
+            String fechaNota = "Numero de nota: "+obtenerNumeroNotaVenta()+"\nFecha: " + new SimpleDateFormat("dd-MM-yyyy").format(date);
+
+            // Crear tabla de encabezado
+            PdfPTable encabezado = new PdfPTable(2);
+            encabezado.setWidthPercentage(100);
+            encabezado.getDefaultCell().setBorder(0);
+            float[] anchosColumnasEncabezado = new float[]{40f, 40f};
+            encabezado.setWidths(anchosColumnasEncabezado);
+
+            // Contenido de la dirección
+            String direccion = "CALLE 20 #10 BIS ENTRE AVENIDA SERDAN Y CALLEJÓN PORFIRIO DÍAS COL. CENTRO C.P. 85400 GUAYMAS, SONORA";
+            PdfPCell celdaDireccion = new PdfPCell(new Phrase("Direccion: " + direccion));
+            celdaDireccion.setBorder(0); // Quitar borde de la celda
+            celdaDireccion.setHorizontalAlignment(Element.ALIGN_LEFT); // Alinear a la izquierda
+            encabezado.addCell(celdaDireccion);
+
+            // Contenido de la fecha
+            PdfPCell celdaFecha = new PdfPCell(new Phrase(fechaNota));
+            celdaFecha.setBorder(0); // Quitar borde de la celda
+            celdaFecha.setHorizontalAlignment(Element.ALIGN_RIGHT); // Alinear a la derecha
+            encabezado.addCell(celdaFecha);
+
+            doc.add(encabezado);
+
+            // Agregar espacio entre la dirección y la tabla de productos
+            Paragraph espacio = new Paragraph(Chunk.NEWLINE);
+            doc.add(espacio);
+
+            // Calcular el precio total de todos los productos
+            double precioTotal = 0.0;
+            for (int i = 0; i < tblCarrito.getRowCount(); i++) {
+                String precioString = tblCarrito.getValueAt(i, 6).toString();
+                // Quitar el signo "$" antes de convertir a double
+                precioString = precioString.replace("$", "");
+                precioTotal += Double.parseDouble(precioString);
+            }
+
+            //Productos
+            PdfPTable tablaProductos = new PdfPTable(4);
+            tablaProductos.setWidthPercentage(100);
+            tablaProductos.getDefaultCell().setBorder(0);
+            // float[] ColumnaProductos = new float[]{20f, 50f, 30f, 40f};
+            //tablaProductos.setWidths(ColumnaProductos);
+            tablaProductos.setHorizontalAlignment(Element.ALIGN_LEFT);
+            PdfPCell producto1 = new PdfPCell(new Phrase("Cantidad", negrita));
+            PdfPCell producto2 = new PdfPCell(new Phrase("Descripcion", negrita));
+            PdfPCell producto3 = new PdfPCell(new Phrase("Estilo", negrita));
+            PdfPCell producto4 = new PdfPCell(new Phrase("Precio", negrita));
+
+            producto1.setBorder(0);
+            producto2.setBorder(0);
+            producto3.setBorder(0);
+            producto4.setBorder(0);
+
+            tablaProductos.addCell(producto1);
+            tablaProductos.addCell(producto2);
+            tablaProductos.addCell(producto3);
+            tablaProductos.addCell(producto4);
+
+            for (int i = 0; i < tblCarrito.getRowCount(); i++) {
+                String cantidad = "1";
+                String descripcion = tblCarrito.getValueAt(i, 3).toString() + " " + tblCarrito.getValueAt(i, 2);
+                String estilo = tblCarrito.getValueAt(i, 1).toString();
+                String total = tblCarrito.getValueAt(i, 6).toString();
+
+                tablaProductos.addCell(cantidad);
+                tablaProductos.addCell(descripcion);
+                tablaProductos.addCell(estilo);
+                tablaProductos.addCell(total);
+            }
+
+            doc.add(tablaProductos);
+
+            Paragraph espacio2 = new Paragraph(Chunk.NEWLINE);
+            doc.add(espacio2);
+
+            // Crear una nueva tabla para mostrar el precio total
+            PdfPTable tablaTotal = new PdfPTable(1);
+            tablaTotal.setWidthPercentage(100);
+            tablaTotal.getDefaultCell().setBorder(0);
+            PdfPCell celdaTotal = new PdfPCell(new Phrase("Total a pagar: $" + precioTotal));
+            celdaTotal.setBorder(0);
+            celdaTotal.setHorizontalAlignment(Element.ALIGN_RIGHT); // Alinear a la derecha
+            tablaTotal.addCell(celdaTotal);
+
+            // Agregar la tabla de total al documento
+            doc.add(tablaTotal);
+            
+            Paragraph espacio3 = new Paragraph(Chunk.NEWLINE);
+            doc.add(espacio3);
+            
+            Paragraph saludo = new Paragraph();
+            saludo.add(Chunk.NEWLINE);
+            saludo.add("Gracias por su compra");
+            saludo.setAlignment(Element.ALIGN_CENTER);
+            doc.add(saludo);
+
+            doc.close();
+            archivo.close();
+
+            Desktop.getDesktop().open(file);
+
+        } catch (DocumentException | IOException | NumberFormatException e) {
+            System.out.println("Ocurrio un error:" + e);
+        }
+    }
+    
+    public static void actualizarNumeroNota() {
+    try {
+        Connection conexion = Conexion.get();
+        String query = "UPDATE numero_nota SET numero = numero + 1";
+        Statement statement = conexion.createStatement();
+        statement.executeUpdate(query);
+        statement.close();
+    } catch (Exception e) {
+        System.out.println("Error al actualizar el número de nota: " + e.getMessage());
+    }
+}
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,7 +298,7 @@ public class NuevaVenta extends javax.swing.JPanel {
         tblCarrito = new javax.swing.JTable();
         txfCodigo = new com.raven.zapateria.textfield.TextField();
         jLabel9 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnlImprimir = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -271,19 +458,30 @@ public class NuevaVenta extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Codigo");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 230, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 230, -1));
 
-        jPanel1.setBackground(new java.awt.Color(73, 150, 50));
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlImprimir.setBackground(new java.awt.Color(73, 150, 50));
+        pnlImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlImprimirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlImprimirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlImprimirMouseExited(evt);
+            }
+        });
+        pnlImprimir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Imprimir ticket");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 70));
+        pnlImprimir.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 70));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 640, 190, 70));
+        add(pnlImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 640, 190, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoActionPerformed
@@ -325,7 +523,7 @@ public class NuevaVenta extends javax.swing.JPanel {
     private void plnAnadirAlCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plnAnadirAlCarritoMouseClicked
 
         DefaultTableModel model = (DefaultTableModel) tblCarrito.getModel();
-        
+
         model.addRow(new Object[]{
             txfCodigo.getText(),
             txfEstilo.getText(),
@@ -335,7 +533,7 @@ public class NuevaVenta extends javax.swing.JPanel {
             cbxNumero.getSelectedItem(),
             txfPrecio.getText()
         });
-    
+
         txfCodigo.setText("");
         txfEstilo.setText("");
         txfColor.setText("");
@@ -345,6 +543,40 @@ public class NuevaVenta extends javax.swing.JPanel {
         cbxNumero.setSelectedIndex(-1);
 
     }//GEN-LAST:event_plnAnadirAlCarritoMouseClicked
+
+    private void pnlImprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlImprimirMouseClicked
+
+        pdf(); // Llama al método pdf para generar el PDF
+        actualizarNumeroNota();
+        DefaultTableModel modelo = (DefaultTableModel) tblCarrito.getModel(); // Obtiene el modelo de la tabla
+
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            // Obtiene el código de la fila actual
+
+            String codigoStr = (String) modelo.getValueAt(i, 0);
+            int codigo = Integer.parseInt(codigoStr);
+
+            // Llama a los métodos con el código actual
+            try {
+                VentaDAO.transferirModeloAVendido(codigo);
+                VentaDAO.eliminarModelo(codigo);
+            } catch (Exception e) {
+                // Maneja cualquier excepción que ocurra durante la ejecución de los métodos
+                System.out.println("Ocurrió un error al transferir o eliminar el modelo con código " + codigo + ": " + e);
+            }
+        }
+
+        // Limpia la tabla después de procesar todos los modelos
+        modelo.setRowCount(0);
+    }//GEN-LAST:event_pnlImprimirMouseClicked
+
+    private void pnlImprimirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlImprimirMouseEntered
+        pnlImprimir.setBackground(new Color(38, 109, 43));
+    }//GEN-LAST:event_pnlImprimirMouseEntered
+
+    private void pnlImprimirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlImprimirMouseExited
+        pnlImprimir.setBackground(new Color(73, 150, 50));
+    }//GEN-LAST:event_pnlImprimirMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -362,12 +594,12 @@ public class NuevaVenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel plnAnadirAlCarrito;
-    private javax.swing.JTable tblCarrito;
+    private javax.swing.JPanel pnlImprimir;
+    public static javax.swing.JTable tblCarrito;
     public static com.raven.zapateria.textfield.TextField txfCodigo;
     private com.raven.zapateria.textfield.TextField txfColor;
     private com.raven.zapateria.textfield.TextField txfEstilo;

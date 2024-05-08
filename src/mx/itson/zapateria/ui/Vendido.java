@@ -6,6 +6,7 @@ package mx.itson.zapateria.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.zapateria.entidades.Venta;
 import mx.itson.zapateria.persistencia.Conexion;
+import mx.itson.zapateria.persistencia.ExcelDAO;
 import mx.itson.zapateria.persistencia.VentaDAO;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -39,6 +41,12 @@ public class Vendido extends javax.swing.JPanel {
         showPieChart();
         Locale local = new Locale("es", "MX");
         NumberFormat formatoMoneda = NumberFormat.getCurrencyInstance(local);
+        
+        tblVendido.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        tblVendido.getTableHeader().setOpaque(false);
+        tblVendido.getTableHeader().setBackground(new Color(73,150,50));
+        tblVendido.getTableHeader().setForeground(new Color(0,0,0));
+        tblVendido.setRowHeight(25);
 
         totalizar();
     }
@@ -131,6 +139,8 @@ public class Vendido extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         pnlGrafica = new javax.swing.JPanel();
+        pnlExportar = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -163,6 +173,11 @@ public class Vendido extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        tblVendido.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblVendido.setFocusable(false);
+        tblVendido.setRowHeight(25);
+        tblVendido.setSelectionBackground(new java.awt.Color(73, 150, 50));
+        tblVendido.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(tblVendido);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 710, 400));
@@ -186,16 +201,61 @@ public class Vendido extends javax.swing.JPanel {
         pnlGrafica.setBackground(new java.awt.Color(204, 204, 204));
         pnlGrafica.setLayout(new java.awt.BorderLayout());
         add(pnlGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 200, 460, 400));
+
+        pnlExportar.setBackground(new java.awt.Color(73, 150, 50));
+        pnlExportar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlExportarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlExportarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlExportarMouseExited(evt);
+            }
+        });
+        pnlExportar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Exportar a excel");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlExportar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 60));
+
+        add(pnlExportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pnlExportarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlExportarMouseClicked
+        
+        ExcelDAO excel = new ExcelDAO();
+        
+        try {
+            excel.exportarExcel(tblVendido);
+        } catch (Exception e) {
+            System.out.println("Oucrrio un error: "+ e) ;
+        }
+        
+    }//GEN-LAST:event_pnlExportarMouseClicked
+
+    private void pnlExportarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlExportarMouseEntered
+        pnlExportar.setBackground(new Color(38, 109, 43));
+    }//GEN-LAST:event_pnlExportarMouseEntered
+
+    private void pnlExportarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlExportarMouseExited
+        pnlExportar.setBackground(new Color(73, 150, 50));
+    }//GEN-LAST:event_pnlExportarMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel lblVentaTotal;
+    private javax.swing.JPanel pnlExportar;
     private javax.swing.JPanel pnlGrafica;
     public static javax.swing.JTable tblVendido;
     // End of variables declaration//GEN-END:variables

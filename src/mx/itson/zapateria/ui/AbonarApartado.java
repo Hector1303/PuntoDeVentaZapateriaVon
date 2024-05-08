@@ -4,31 +4,12 @@
  */
 package mx.itson.zapateria.ui;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Desktop;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mx.itson.zapateria.persistencia.ApartadoDAO;
-import mx.itson.zapateria.persistencia.ModeloDAO;
 import mx.itson.zapateria.persistencia.ProveedorDAO;
 import static mx.itson.zapateria.ui.Main.pnlAnadir;
 import static mx.itson.zapateria.ui.Main.pnlApartados;
@@ -37,23 +18,19 @@ import static mx.itson.zapateria.ui.Main.pnlInicio;
 import static mx.itson.zapateria.ui.Main.pnlJFrames;
 import static mx.itson.zapateria.ui.Main.pnlProveedor;
 import static mx.itson.zapateria.ui.Main.pnlVendido;
-import java.sql.Connection;
-import java.sql.Statement;
-import mx.itson.zapateria.persistencia.Conexion;
-import java.sql.ResultSet;
-import java.util.Calendar;
 
 /**
  *
  * @author chiqu
  */
-public class NuevoApartado extends javax.swing.JPanel {
+public class AbonarApartado extends javax.swing.JPanel {
 
     /**
      * Creates new form NuevoApartado
      */
-    public NuevoApartado() {
+    public AbonarApartado() {
         initComponents();
+        inicio();
         List<String> valores = ProveedorDAO.obtenerValoresColumna("nombre");
 
         for (String valor : valores) {
@@ -61,6 +38,53 @@ public class NuevoApartado extends javax.swing.JPanel {
         }
     }
 
+    public void inicio(){
+        int filaSeleccionada = Apartados.tblApartados.getSelectedRow();
+        int codigo = Integer.parseInt(Apartados.tblApartados.getValueAt(filaSeleccionada, 2).toString());
+        
+        String nombre = Apartados.tblApartados.getValueAt(filaSeleccionada, 0).toString();
+        String celular = Apartados.tblApartados.getValueAt(filaSeleccionada, 1).toString();;
+        String codigotxf = Apartados.tblApartados.getValueAt(filaSeleccionada, 2).toString();;
+        
+        String color = Apartados.tblApartados.getValueAt(filaSeleccionada, 3).toString().toLowerCase();
+        color = Character.toUpperCase(color.charAt(0)) + color.substring(1);
+        
+        String numero = Apartados.tblApartados.getValueAt(filaSeleccionada, 4).toString();
+            if (numero.endsWith(".0")) { // Si el número es un entero, terminará con ".0"
+                numero = numero.substring(0, numero.length() - 2); // Eliminar ".0" al final
+            }
+        
+        String tipo = Apartados.tblApartados.getValueAt(filaSeleccionada, 5).toString().toLowerCase(); 
+        tipo = Character.toUpperCase(tipo.charAt(0)) + tipo.substring(1);
+        if(tipo.equals("Botatrabajo")){
+            tipo = "Bota de trabajo";
+        }else if(tipo.equals("Botarodeo")){
+            tipo = "Bota de rodeo";
+        }else if(tipo.equals("Botaalta")){
+            tipo = "Bota alta";
+        }
+        
+        String sexo = Apartados.tblApartados.getValueAt(filaSeleccionada, 6).toString().toLowerCase();
+        sexo = Character.toUpperCase(sexo.charAt(0)) + sexo.substring(1);
+        
+        String precio = Apartados.tblApartados.getValueAt(filaSeleccionada, 7).toString().substring(1);
+        String estilo = Apartados.tblApartados.getValueAt(filaSeleccionada, 9).toString();
+        String numeroApartado = Apartados.tblApartados.getValueAt(filaSeleccionada, 12).toString().substring(1);
+        String proveedor = Apartados.tblApartados.getValueAt(filaSeleccionada, 13).toString();
+        
+        txfNombre.setText(nombre);
+        txfCelular.setText(celular);
+        txfCodigo.setText(codigotxf);
+        txfColor.setText(color);
+        cbxNumero.setSelectedItem(numero);
+        cbxTipo.setSelectedItem(tipo);
+        cbxSexo.setSelectedItem(sexo);
+        txfPrecio.setText(precio);
+        txfEstilo.setText(estilo);
+        txfNumeroApartado.setText(numeroApartado);
+        cbxProveedor.setSelectedItem(proveedor);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,6 +144,7 @@ public class NuevoApartado extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 210, 20));
 
+        txfNombre.setEditable(false);
         txfNombre.setCaretColor(new java.awt.Color(0, 0, 0));
         txfNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfNombre.setLabelText("");
@@ -132,6 +157,7 @@ public class NuevoApartado extends javax.swing.JPanel {
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 200, 30));
 
+        txfCelular.setEditable(false);
         txfCelular.setCaretColor(new java.awt.Color(0, 0, 0));
         txfCelular.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfCelular.setLabelText("");
@@ -144,6 +170,7 @@ public class NuevoApartado extends javax.swing.JPanel {
         jLabel3.setText("Celular");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 200, 30));
 
+        txfCodigo.setEditable(false);
         txfCodigo.setCaretColor(new java.awt.Color(0, 0, 0));
         txfCodigo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfCodigo.setLabelText("");
@@ -156,6 +183,7 @@ public class NuevoApartado extends javax.swing.JPanel {
         jLabel4.setText("Codigo");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 40));
 
+        txfColor.setEditable(false);
         txfColor.setCaretColor(new java.awt.Color(0, 0, 0));
         txfColor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfColor.setLabelText("");
@@ -187,6 +215,7 @@ public class NuevoApartado extends javax.swing.JPanel {
 
         cbxNumero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "10.5", "11", "11.5", "12", "12.5", "13", "13.5", "14", "14.5", "15", "15.5", "16", "16.5", "17", "17.5", "18", "18.5", "19", "19.5", "20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5" }));
         cbxNumero.setSelectedIndex(-1);
+        cbxNumero.setEnabled(false);
         cbxNumero.setLabeText("");
         cbxNumero.setLineColor(new java.awt.Color(73, 150, 50));
         cbxNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +232,7 @@ public class NuevoApartado extends javax.swing.JPanel {
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Teni", "Zapato", "Zapatilla", "Huarache", "Taquete", "Bota de trabajo", "Bota de rodeo", "Bota alta", "Botin", "Reloj" }));
         cbxTipo.setSelectedIndex(-1);
+        cbxTipo.setEnabled(false);
         cbxTipo.setLabeText("");
         cbxTipo.setLineColor(new java.awt.Color(73, 150, 50));
         cbxTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +249,7 @@ public class NuevoApartado extends javax.swing.JPanel {
 
         cbxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mujer", "Hombre", "Unisex" }));
         cbxSexo.setSelectedIndex(-1);
+        cbxSexo.setEnabled(false);
         cbxSexo.setLabeText("");
         cbxSexo.setLineColor(new java.awt.Color(73, 150, 50));
         cbxSexo.addActionListener(new java.awt.event.ActionListener() {
@@ -233,6 +264,7 @@ public class NuevoApartado extends javax.swing.JPanel {
         jLabel10.setText("Precio");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, 100, 30));
 
+        txfPrecio.setEditable(false);
         txfPrecio.setCaretColor(new java.awt.Color(0, 0, 0));
         txfPrecio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfPrecio.setLabelText("");
@@ -267,6 +299,7 @@ public class NuevoApartado extends javax.swing.JPanel {
         jLabel13.setText("Estilo");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 210, 90, 30));
 
+        txfEstilo.setEditable(false);
         txfEstilo.setCaretColor(new java.awt.Color(0, 0, 0));
         txfEstilo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfEstilo.setLabelText("");
@@ -295,13 +328,14 @@ public class NuevoApartado extends javax.swing.JPanel {
         jLabel14.setText("Guardar");
         pnlGuardar.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 70));
 
-        add(pnlGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 650, 230, 70));
+        add(pnlGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 640, 230, 70));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Numero de apartado");
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 410, 250, 30));
 
+        txfNumeroApartado.setEditable(false);
         txfNumeroApartado.setCaretColor(new java.awt.Color(0, 0, 0));
         txfNumeroApartado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfNumeroApartado.setLabelText("");
@@ -349,267 +383,39 @@ public class NuevoApartado extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfRestanteActionPerformed
 
-    private void pdfApartado() {
-        try {
-            FileOutputStream archivo;
-            File file = new File("C:\\Users\\chiqu\\OneDrive\\Documentos\\NetBeansProjects\\Zapateria\\src\\mx\\itson\\zapateria\\pdf/apartado" + obtenerNumeroNotaApartado() + ".pdf");
-            archivo = new FileOutputStream(file);
-            Document doc = new Document();
-            PdfWriter.getInstance(doc, archivo);
-            doc.open();
-            Image img = Image.getInstance("C:\\Users\\chiqu\\OneDrive\\Documentos\\NetBeansProjects\\Zapateria\\src\\mx\\itson\\zapateria\\imagenes/logo_zapateria_pdf.png");
-
-            Paragraph imagen = new Paragraph();
-            imagen.add(Chunk.NEWLINE);
-            imagen.add(img);
-
-            PdfPTable logo = new PdfPTable(1);
-            logo.setWidthPercentage(40);
-            logo.getDefaultCell().setBorder(0);
-            logo.setHorizontalAlignment(Element.ALIGN_CENTER);
-            logo.addCell(img);
-            doc.add(logo);
-
-            Paragraph fecha = new Paragraph();
-            Font negrita = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, BaseColor.BLACK);
-            fecha.add(Chunk.NEWLINE);
-            Date date = new Date();
-            String fechaNota = "Numero de nota: " + obtenerNumeroNotaApartado() + "\nFecha: " + new SimpleDateFormat("dd-MM-yyyy").format(date);
-
-            // Crear tabla de encabezado
-            PdfPTable encabezado = new PdfPTable(2);
-            encabezado.setWidthPercentage(100);
-            encabezado.getDefaultCell().setBorder(0);
-            float[] anchosColumnasEncabezado = new float[]{40f, 40f};
-            encabezado.setWidths(anchosColumnasEncabezado);
-
-            // Contenido de la dirección
-            String direccion = "CALLE 20 #10 BIS ENTRE AVENIDA SERDAN Y CALLEJÓN PORFIRIO DÍAS COL. CENTRO C.P. 85400 GUAYMAS, SONORA";
-            PdfPCell celdaDireccion = new PdfPCell(new Phrase("Direccion: " + direccion));
-            celdaDireccion.setBorder(0); // Quitar borde de la celda
-            celdaDireccion.setHorizontalAlignment(Element.ALIGN_LEFT); // Alinear a la izquierda
-            encabezado.addCell(celdaDireccion);
-
-            // Contenido de la fecha
-            PdfPCell celdaFecha = new PdfPCell(new Phrase(fechaNota));
-            celdaFecha.setBorder(0); // Quitar borde de la celda
-            celdaFecha.setHorizontalAlignment(Element.ALIGN_RIGHT); // Alinear a la derecha
-            encabezado.addCell(celdaFecha);
-
-            doc.add(encabezado);
-
-            // Agregar espacio entre la dirección y la tabla de productos
-            Paragraph espacio = new Paragraph(Chunk.NEWLINE);
-            doc.add(espacio);
-
-            Paragraph espacio6 = new Paragraph(Chunk.NEWLINE);
-            doc.add(espacio6);
-
-            //Productos
-            PdfPTable tablaProductos = new PdfPTable(6);
-            tablaProductos.setWidthPercentage(100);
-            tablaProductos.getDefaultCell().setBorder(0);
-            tablaProductos.setHorizontalAlignment(Element.ALIGN_LEFT);
-            PdfPCell producto1 = new PdfPCell(new Phrase("Nombre", negrita));
-            PdfPCell producto2 = new PdfPCell(new Phrase("Celular", negrita));
-            PdfPCell producto3 = new PdfPCell(new Phrase("Cantidad", negrita));
-            PdfPCell producto4 = new PdfPCell(new Phrase("Descripcion", negrita));
-            PdfPCell producto5 = new PdfPCell(new Phrase("Estilo", negrita));
-            PdfPCell producto6 = new PdfPCell(new Phrase("Precio", negrita));
-
-            producto1.setBorder(0);
-            producto2.setBorder(0);
-            producto3.setBorder(0);
-            producto4.setBorder(0);
-            producto5.setBorder(0);
-            producto6.setBorder(0);
-
-            tablaProductos.addCell(producto1);
-            tablaProductos.addCell(producto2);
-            tablaProductos.addCell(producto3);
-            tablaProductos.addCell(producto4);
-            tablaProductos.addCell(producto5);
-            tablaProductos.addCell(producto6);
-
-            String cantidad = "1";
-            String nombre = txfNombre.getText();
-            String celular = txfCelular.getText();
-            String descripcion = cbxTipo.getSelectedItem().toString() + " " + txfColor.getText();
-            String estilo = txfEstilo.getText();
-            String precio = txfPrecio.getText();
-
-            tablaProductos.addCell(nombre);
-            tablaProductos.addCell(celular);
-            tablaProductos.addCell(cantidad);
-            tablaProductos.addCell(descripcion);
-            tablaProductos.addCell(estilo);
-            tablaProductos.addCell(precio);
-
-            doc.add(tablaProductos);
-
-            Paragraph espacio2 = new Paragraph(Chunk.NEWLINE);
-            doc.add(espacio2);
-
-            PdfPTable tablaFechas = new PdfPTable(2);
-            tablaFechas.setWidthPercentage(100);
-            tablaFechas.getDefaultCell().setBorder(0);
-            tablaFechas.setHorizontalAlignment(Element.ALIGN_LEFT);
-            PdfPCell fechaApartado = new PdfPCell(new Phrase("Fecha de apartado", negrita));
-            PdfPCell fechaVencimiento = new PdfPCell(new Phrase("Fecha de vencimiento", negrita));
-
-            fechaApartado.setBorder(0);
-            fechaVencimiento.setBorder(0);
-
-            tablaFechas.addCell(fechaApartado);
-            tablaFechas.addCell(fechaVencimiento);
-
-            Date fechaActual = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            String fechaActualStr = sdf.format(fechaActual);
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(fechaActual);
-            calendar.add(Calendar.MONTH, 1); // Sumar 1 mes
-            Date fechaDentroDeUnMes = calendar.getTime();
-            String fechaDentroDeUnMesStr = sdf.format(fechaDentroDeUnMes);
-            
-            tablaFechas.addCell(fechaActualStr);
-            tablaFechas.addCell(fechaDentroDeUnMesStr);
-            
-            doc.add(tablaFechas);
-
-            double precio1 = Double.parseDouble(txfPrecio.getText());
-            double restante = Double.parseDouble(txfRestante.getText());
-            double diferencia = precio1 - restante;
-            String restante1 = String.valueOf(diferencia);
-
-            // Crear una nueva tabla para mostrar el precio total
-            PdfPTable tablaTotal = new PdfPTable(1);
-            tablaTotal.setWidthPercentage(100);
-            tablaTotal.getDefaultCell().setBorder(0);
-            PdfPCell celdaTotal = new PdfPCell(new Phrase("Restante: $" + restante1));
-            celdaTotal.setBorder(0);
-            celdaTotal.setHorizontalAlignment(Element.ALIGN_RIGHT); // Alinear a la derecha
-            tablaTotal.addCell(celdaTotal);
-
-            // Agregar la tabla de total al documento
-            doc.add(tablaTotal);
-
-            Paragraph espacio3 = new Paragraph(Chunk.NEWLINE);
-            doc.add(espacio3);
-
-            Paragraph firma = new Paragraph();
-            firma.add(Chunk.NEWLINE);
-            firma.add("-DESPUÉS DE UN MES NO NOS HACEMOS RESPONSABLES DE SU APARTADO.\n");
-            firma.add("-LOS APARTADOS NO SE CAMBIAN, NI SE REGRESA EL DINERO.\n");
-            firma.setAlignment(Element.ALIGN_LEFT);
-            doc.add(firma);
-
-            Paragraph espacio4 = new Paragraph(Chunk.NEWLINE);
-            doc.add(espacio4);
-
-            Paragraph espacio5 = new Paragraph(Chunk.NEWLINE);
-            doc.add(espacio5);
-
-            Paragraph firma2 = new Paragraph();
-            firma2.add(Chunk.NEWLINE);
-            firma2.add("_______________________________\n");
-            firma2.add("FIRMA DE CONFORMIDAD\n");
-            firma2.setAlignment(Element.ALIGN_CENTER);
-            doc.add(firma2);
-
-            Paragraph saludo = new Paragraph();
-            saludo.add(Chunk.NEWLINE);
-            saludo.add("Gracias por su compra");
-            saludo.setAlignment(Element.ALIGN_CENTER);
-            doc.add(saludo);
-
-            doc.close();
-            archivo.close();
-
-            Desktop.getDesktop().open(file);
-
-        } catch (DocumentException | IOException e) {
-            System.out.println("Ocurrió un error:" + e);
-        }
-    }
-
-    public static int obtenerNumeroNotaApartado() {
-        int numeroNota = -1;
-        try {
-            Connection conexion = Conexion.get();
-            String query = "SELECT numero FROM almacen.numero_nota_apartado";
-            Statement statement = conexion.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            if (resultSet.next()) {
-                numeroNota = resultSet.getInt("numero");
-            }
-            resultSet.close();
-            statement.close();
-        } catch (Exception e) {
-            System.out.println("Error al obtener el número de nota de apartado: " + e.getMessage());
-        }
-        return numeroNota;
-    }
-
-    public static void actualizarNumeroNotaApartado() {
-        try {
-            Connection conexion = Conexion.get();
-            String query = "UPDATE numero_nota_apartado SET numero = numero + 1";
-            Statement statement = conexion.createStatement();
-            statement.executeUpdate(query);
-            statement.close();
-        } catch (Exception e) {
-            System.out.println("Error al actualizar el número de nota de apartado: " + e.getMessage());
-        }
-    }
-
     private void pnlGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGuardarMouseClicked
 
-        String nombre = txfNombre.getText();
-        String codigo = txfCodigo.getText();
-        String celular = txfCelular.getText();
-        String estilo = txfEstilo.getText().toLowerCase();
-        String color = txfColor.getText().toLowerCase();
-        color = Character.toUpperCase(color.charAt(0)) + color.substring(1);
-        String numero = cbxNumero.getSelectedItem().toString();
-        int sexo = cbxSexo.getSelectedIndex() + 1;
-        String precio = txfPrecio.getText();
+        int filaSeleccionada = Apartados.tblApartados.getSelectedRow();
+        int codigo = Integer.parseInt(Apartados.tblApartados.getValueAt(filaSeleccionada, 2).toString());
+        
         String restante = txfRestante.getText();
-        int tipo = cbxTipo.getSelectedIndex() + 1;
-        String numeroApartado = txfNumeroApartado.getText();
-        String proveedor = cbxProveedor.getSelectedItem().toString();
-
+        String numeroApartado = Apartados.tblApartados.getValueAt(filaSeleccionada, 12).toString();
+        
         try {
-            if (ApartadoDAO.guardar(nombre, celular, Integer.parseInt(codigo), color, Double.parseDouble(numero),
-                    tipo, sexo, Double.parseDouble(precio), Double.parseDouble(restante),
-                    Integer.parseInt(estilo), Integer.parseInt(numeroApartado), proveedor)) {
-                JOptionPane.showMessageDialog(null, "Modelo añadido");
+            if (ApartadoDAO.editar(Double.parseDouble(restante), codigo)) {
+                    JOptionPane.showMessageDialog(null, "Se ha abonado al apartado " +numeroApartado);
 
-                pdfApartado();
-                actualizarNumeroNotaApartado();
-                Apartados p3 = new Apartados();
-                p3.setSize(1510, 770);
-                p3.setLocation(0, 0);
+                    Apartados p3 = new Apartados();
+                    p3.setSize(1510, 770);
+                    p3.setLocation(0, 0);
 
-                setColor(pnlApartados);
-                resetColor(pnlVendido);
-                resetColor(pnlAnadir);
-                resetColor(pnlInicio);
-                resetColor(pnlBuscar);
-                resetColor(pnlProveedor);
+                    setColor(pnlApartados);
+                    resetColor(pnlVendido);
+                    resetColor(pnlAnadir);
+                    resetColor(pnlInicio);
+                    resetColor(pnlBuscar);
+                    resetColor(pnlProveedor);
 
-                pnlJFrames.removeAll();
-                pnlJFrames.add(p3, BorderLayout.CENTER);
-                pnlJFrames.revalidate();
-                pnlJFrames.repaint();
-
-                ModeloDAO.eliminarModelo(Integer.parseInt(txfCodigo.getText()));
-            }
+                    pnlJFrames.removeAll();
+                    pnlJFrames.add(p3, BorderLayout.CENTER);
+                    pnlJFrames.revalidate();
+                    pnlJFrames.repaint();
+                    
+                }
         } catch (Exception e) {
             System.out.println("Error al guardar " + e);
         }
-
+        
     }//GEN-LAST:event_pnlGuardarMouseClicked
 
     private void pnlGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGuardarMouseEntered

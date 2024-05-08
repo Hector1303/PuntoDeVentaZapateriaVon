@@ -5,6 +5,7 @@
 package mx.itson.zapateria.ui;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.zapateria.entidades.Proveedor;
@@ -22,6 +23,12 @@ public class Proveedores extends javax.swing.JPanel {
     public Proveedores() {
         initComponents();
         llenarTabla();
+        
+        tblProveedor.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        tblProveedor.getTableHeader().setOpaque(false);
+        tblProveedor.getTableHeader().setBackground(new Color(73,150,50));
+        tblProveedor.getTableHeader().setForeground(new Color(0,0,0));
+        tblProveedor.setRowHeight(25);
     }
     
     private void llenarTabla() {
@@ -78,6 +85,9 @@ public class Proveedores extends javax.swing.JPanel {
                 "Codigo de proveedor", "Nombre"
             }
         ));
+        tblProveedor.setFocusable(false);
+        tblProveedor.setRowHeight(25);
+        tblProveedor.setSelectionBackground(new java.awt.Color(73, 150, 50));
         jScrollPane1.setViewportView(tblProveedor);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 670, -1));

@@ -117,12 +117,13 @@ public class ModeloDAO {
     /**
      * 
      */
-    public static void eliminarModelo(){
-        
+    public static boolean eliminarModelo(int codigo){
+        boolean resultado = false;
         try {
-            
             int filaSeleccionada = Buscar.tblBuscar.getSelectedRow();
-            String query = "DELETE FROM almacen.modelo WHERE codigo= " + Buscar.tblBuscar.getValueAt(filaSeleccionada,0);
+            if(filaSeleccionada != -1){
+            codigo = (int) Buscar.tblBuscar.getValueAt(filaSeleccionada,0);
+            String query = "DELETE FROM almacen.modelo WHERE codigo= " + codigo;
             Connection conexion = Conexion.get();
             Statement statement = conexion.createStatement();
             
@@ -130,22 +131,17 @@ public class ModeloDAO {
             
             if (n >= 0) {
                 System.out.println("Modelo eliminado de tabla buscar");
+                resultado = true;
+            }
             }
             
-            Vendido p4 = new Vendido();
-            p4.setSize(1510, 770);
-            p4.setLocation(0,0);
-        
-            pnlJFrames.removeAll();
-            pnlJFrames.add(p4, BorderLayout.CENTER);
-            pnlJFrames.revalidate();
-            pnlJFrames.repaint();
+            
             
         } catch (Exception e) {
             System.out.println("Ocurrio un error al intentar elminiar el modelo: " + e);
             JOptionPane.showMessageDialog(null, "Selecciona un modelo");
         }
-        
+        return resultado;
     }
     
     public static List<Modelo> buscar(String buscar) {
@@ -234,7 +230,7 @@ public class ModeloDAO {
     /**
      * 
      */
-    public static void transferirModeloAVendido(){
+    public static void transferirModeloAVendido(int codigo){
         try {
             
             int filaSeleccionada = Buscar.tblBuscar.getSelectedRow();
@@ -242,7 +238,7 @@ public class ModeloDAO {
             Statement statement = conexion.createStatement();
             
             int n = statement.executeUpdate("INSERT INTO almacen.venta(codigo, color, numero, tipo, sexo, precio, estilo, proveedor, fecha) "
-                    + "SELECT codigo, color, numero, tipo, sexo, precio, estilo, proveedor, CURDATE() FROM almacen.modelo WHERE (codigo=" + Buscar.tblBuscar.getValueAt(filaSeleccionada,0)+")");
+                    + "SELECT codigo, color, numero, tipo, sexo, precio, estilo, proveedor, CURDATE() FROM almacen.modelo WHERE (codigo=" + codigo+")");
             
             if (n >= 0) {
                 System.out.println("Modelo transferido a venta");

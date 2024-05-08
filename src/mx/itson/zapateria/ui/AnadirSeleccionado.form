@@ -251,28 +251,6 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="com.raven.zapateria.textfield.TextField" name="txfNumero">
-      <Properties>
-        <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="labelText" type="java.lang.String" value=""/>
-        <Property name="lineColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="32" green="96" red="49" type="rgb"/>
-        </Property>
-        <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="32" green="96" red="49" type="rgb"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="290" width="230" height="-1"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Component class="com.raven.zapateria.textfield.TextField" name="txfColor">
       <Properties>
         <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -377,7 +355,6 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
-        <Property name="selectedIndex" type="int" value="-1"/>
         <Property name="labeText" type="java.lang.String" value=""/>
         <Property name="lineColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="32" green="96" red="49" type="rgb"/>
@@ -389,6 +366,69 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="310" y="520" width="240" height="50"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="com.raven.zapateria.combobox.Combobox" name="cbxNumero">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="42">
+            <StringItem index="0" value="10"/>
+            <StringItem index="1" value="10.5"/>
+            <StringItem index="2" value="11"/>
+            <StringItem index="3" value="11.5"/>
+            <StringItem index="4" value="12"/>
+            <StringItem index="5" value="12.5"/>
+            <StringItem index="6" value="13"/>
+            <StringItem index="7" value="13.5"/>
+            <StringItem index="8" value="14"/>
+            <StringItem index="9" value="14.5"/>
+            <StringItem index="10" value="15"/>
+            <StringItem index="11" value="15.5"/>
+            <StringItem index="12" value="16"/>
+            <StringItem index="13" value="16.5"/>
+            <StringItem index="14" value="17"/>
+            <StringItem index="15" value="17.5"/>
+            <StringItem index="16" value="18"/>
+            <StringItem index="17" value="18.5"/>
+            <StringItem index="18" value="19"/>
+            <StringItem index="19" value="19.5"/>
+            <StringItem index="20" value="20"/>
+            <StringItem index="21" value="20.5"/>
+            <StringItem index="22" value="21"/>
+            <StringItem index="23" value="21.5"/>
+            <StringItem index="24" value="22"/>
+            <StringItem index="25" value="22.5"/>
+            <StringItem index="26" value="23"/>
+            <StringItem index="27" value="23.5"/>
+            <StringItem index="28" value="24"/>
+            <StringItem index="29" value="24.5"/>
+            <StringItem index="30" value="25"/>
+            <StringItem index="31" value="25.5"/>
+            <StringItem index="32" value="26"/>
+            <StringItem index="33" value="26.5"/>
+            <StringItem index="34" value="27"/>
+            <StringItem index="35" value="27.5"/>
+            <StringItem index="36" value="28"/>
+            <StringItem index="37" value="28.5"/>
+            <StringItem index="38" value="29"/>
+            <StringItem index="39" value="29.5"/>
+            <StringItem index="40" value="30"/>
+            <StringItem index="41" value="30.5"/>
+          </StringArray>
+        </Property>
+        <Property name="selectedIndex" type="int" value="-1"/>
+        <Property name="labeText" type="java.lang.String" value=""/>
+        <Property name="lineColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="32" green="96" red="49" type="rgb"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxNumeroActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="310" y="290" width="230" height="50"/>
         </Constraint>
       </Constraints>
     </Component>

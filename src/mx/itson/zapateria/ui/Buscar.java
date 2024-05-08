@@ -6,6 +6,7 @@ package mx.itson.zapateria.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,7 +19,6 @@ import static mx.itson.zapateria.ui.Main.pnlBuscar;
 import static mx.itson.zapateria.ui.Main.pnlInicio;
 import static mx.itson.zapateria.ui.Main.pnlJFrames;
 import static mx.itson.zapateria.ui.Main.pnlProveedor;
-import static mx.itson.zapateria.ui.Main.pnlVendido;
 
 /**
  *
@@ -33,6 +33,12 @@ public class Buscar extends javax.swing.JPanel {
         initComponents();
 
         llenarTabla();
+        
+        tblBuscar.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        tblBuscar.getTableHeader().setOpaque(false);
+        tblBuscar.getTableHeader().setBackground(new Color(73,150,50));
+        tblBuscar.getTableHeader().setForeground(new Color(0,0,0));
+        tblBuscar.setRowHeight(25);
 
     }
 
@@ -135,6 +141,10 @@ public class Buscar extends javax.swing.JPanel {
                 "Codigo", "Color", "Numero", "Tipo", "Sexo", "Precio", "Estilo", "Cantidad", "Proveedor"
             }
         ));
+        tblBuscar.setFocusable(false);
+        tblBuscar.setRowHeight(25);
+        tblBuscar.setSelectionBackground(new java.awt.Color(73, 150, 50));
+        tblBuscar.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(tblBuscar);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 1070, 540));
@@ -288,7 +298,69 @@ public class Buscar extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlVendidoMouseClicked
 
     private void pnlApartarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseClicked
-        // TODO add your handling code here:
+        
+        try {
+            
+        int filaSeleccionada = tblBuscar.getSelectedRow();
+        String codigo = tblBuscar.getValueAt(filaSeleccionada, 2).toString();
+            
+        String txfCodigo = tblBuscar.getValueAt(filaSeleccionada, 0).toString();
+        
+        String color = tblBuscar.getValueAt(filaSeleccionada, 1).toString().toLowerCase();
+        color = Character.toUpperCase(color.charAt(0)) + color.substring(1);
+        
+        String numero = tblBuscar.getValueAt(filaSeleccionada, 2).toString();
+            if (numero.endsWith(".0")) { // Si el número es un entero, terminará con ".0"
+                numero = numero.substring(0, numero.length() - 2); // Eliminar ".0" al final
+            }
+        
+        String tipo = tblBuscar.getValueAt(filaSeleccionada, 3).toString().toLowerCase(); 
+        tipo = Character.toUpperCase(tipo.charAt(0)) + tipo.substring(1);
+        if(tipo.equals("Botatrabajo")){
+            tipo = "Bota de trabajo";
+        }else if(tipo.equals("Botarodeo")){
+            tipo = "Bota de rodeo";
+        }else if(tipo.equals("Botaalta")){
+            tipo = "Bota alta";
+        }
+        
+        String sexo = tblBuscar.getValueAt(filaSeleccionada, 4).toString().toLowerCase();
+        sexo = Character.toUpperCase(sexo.charAt(0)) + sexo.substring(1);
+        
+        String precio = tblBuscar.getValueAt(filaSeleccionada, 5).toString().substring(1);
+        String estilo = tblBuscar.getValueAt(filaSeleccionada, 6).toString();
+        
+        NuevoApartado p7 = new NuevoApartado();
+        p7.setSize(1510, 770);
+        p7.setLocation(0, 0);
+        
+        p7.txfCodigo.setText(txfCodigo);
+        
+        p7.txfColor.setText(color);
+        p7.cbxNumero.setSelectedItem(numero);
+        p7.cbxTipo.setSelectedItem(tipo);
+        p7.cbxSexo.setSelectedItem(sexo);
+        p7.txfPrecio.setText(precio);
+        p7.txfEstilo.setText(estilo);
+        
+        
+
+        setColor(pnlApartados);
+        resetColor(pnlVendido);
+        resetColor(pnlAnadir);
+        resetColor(pnlBuscar);
+        resetColor(pnlInicio);
+        resetColor(pnlProveedor);
+
+        pnlJFrames.removeAll();
+        pnlJFrames.add(p7, BorderLayout.CENTER);
+        pnlJFrames.revalidate();
+        pnlJFrames.repaint();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Selecciona un modelo");
+        }
+        
     }//GEN-LAST:event_pnlApartarMouseClicked
 
     private void pnlApartarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlApartarMouseEntered
@@ -300,7 +372,22 @@ public class Buscar extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlApartarMouseExited
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
-        // TODO add your handling code here:
+        int filaSeleccionada = tblBuscar.getSelectedRow();
+        if(filaSeleccionada != -1){
+            if(JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el modelo?") == JOptionPane.YES_OPTION){
+            
+            
+            if(ModeloDAO.eliminarModelo((int) tblBuscar.getValueAt(filaSeleccionada, 0))){
+                JOptionPane.showMessageDialog(this, "Se ha eliminado el modelo del inventario");
+            }
+            llenarTabla();
+        }
+        }else{
+            JOptionPane.showMessageDialog(this, "Selecciona un modelo");
+        }
+        
+        
+        
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered

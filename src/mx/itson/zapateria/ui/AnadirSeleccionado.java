@@ -60,12 +60,12 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txfPrecio = new com.raven.zapateria.textfield.TextField();
         txfEstilo = new com.raven.zapateria.textfield.TextField();
-        txfNumero = new com.raven.zapateria.textfield.TextField();
         txfColor = new com.raven.zapateria.textfield.TextField();
         cbxTipo = new com.raven.zapateria.combobox.Combobox();
         cbxSexo = new com.raven.zapateria.combobox.Combobox();
         jLabel6 = new javax.swing.JLabel();
         cbxProveedor = new com.raven.zapateria.combobox.Combobox();
+        cbxNumero = new com.raven.zapateria.combobox.Combobox();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1510, 770));
@@ -155,13 +155,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         txfEstilo.setSelectionColor(new java.awt.Color(73, 150, 50));
         add(txfEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 230, -1));
 
-        txfNumero.setCaretColor(new java.awt.Color(0, 0, 0));
-        txfNumero.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txfNumero.setLabelText("");
-        txfNumero.setLineColor(new java.awt.Color(73, 150, 50));
-        txfNumero.setSelectionColor(new java.awt.Color(73, 150, 50));
-        add(txfNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 230, -1));
-
         txfColor.setCaretColor(new java.awt.Color(0, 0, 0));
         txfColor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txfColor.setLabelText("");
@@ -201,7 +194,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         jLabel6.setText("Proveedor");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 250, 30));
 
-        cbxProveedor.setSelectedIndex(-1);
         cbxProveedor.setLabeText("");
         cbxProveedor.setLineColor(new java.awt.Color(73, 150, 50));
         cbxProveedor.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +202,17 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
             }
         });
         add(cbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 240, 50));
+
+        cbxNumero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "10.5", "11", "11.5", "12", "12.5", "13", "13.5", "14", "14.5", "15", "15.5", "16", "16.5", "17", "17.5", "18", "18.5", "19", "19.5", "20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5" }));
+        cbxNumero.setSelectedIndex(-1);
+        cbxNumero.setLabeText("");
+        cbxNumero.setLineColor(new java.awt.Color(73, 150, 50));
+        cbxNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxNumeroActionPerformed(evt);
+            }
+        });
+        add(cbxNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 230, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlAnadirSeleccionadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAnadirSeleccionadoMouseEntered
@@ -234,7 +237,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         String estilo = txfEstilo.getText().toLowerCase();
         String color = txfColor.getText().toLowerCase();
         color = Character.toUpperCase(color.charAt(0)) + color.substring(1);
-        String numero = txfNumero.getText();
+        String numero = cbxNumero.getSelectedItem().toString();
         int sexo = cbxSexo.getSelectedIndex() + 1;
         String precio = txfPrecio.getText();
         int tipo = cbxTipo.getSelectedIndex() + 1;
@@ -281,10 +284,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfPrecioActionPerformed
 
-    private void txfColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfColorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfColorActionPerformed
-
     private void cbxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxTipoActionPerformed
@@ -296,6 +295,14 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     private void cbxProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxProveedorActionPerformed
+
+    private void cbxNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxNumeroActionPerformed
+
+    private void txfColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfColorActionPerformed
 
     public void setColor(JPanel panel) {
         panel.setBackground(new Color(73, 150, 50));
@@ -313,6 +320,7 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.raven.zapateria.combobox.Combobox cbxNumero;
     private com.raven.zapateria.combobox.Combobox cbxProveedor;
     private com.raven.zapateria.combobox.Combobox cbxSexo;
     protected com.raven.zapateria.combobox.Combobox cbxTipo;
@@ -329,7 +337,6 @@ public class AnadirSeleccionado extends javax.swing.JPanel {
     private javax.swing.JPanel pnlAnadirSeleccionado;
     private com.raven.zapateria.textfield.TextField txfColor;
     private com.raven.zapateria.textfield.TextField txfEstilo;
-    private com.raven.zapateria.textfield.TextField txfNumero;
     private com.raven.zapateria.textfield.TextField txfPrecio;
     // End of variables declaration//GEN-END:variables
 }
